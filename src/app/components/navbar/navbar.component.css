@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+      background-color: #efeeee;
+  }
+  
+  .nav{
+      width: 100vw;
+      height: 100px;
+      background-color: #efeeee;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 3rem;
+      list-style-type: none;
+      left: 0;
+      top: 0;
+      position: sticky;
+      z-index: 100;
+      border: 2px solid rgba(255,255,255,.3);
+      box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
+      border-radius: 0 0 10px 10px;
+  }
+  
+  li.logo{
+    margin-right: auto;
+    font-size: 1.5rem;
+    color: dimgray;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+  }
+      
+    
+  li:not(.logo), #burgerMenu{
+    margin: 0 1rem;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid rgba(255,255,255,.3);
+    box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
+    border-radius: 10px;   
+    cursor: pointer;
+    transition: color 0.2s ease-out, transform 0.2s ease-out;
+    color: dimgray;
+  }
+  
+  li:hover, #burgerMenu:hover{
+    transform: scale(1.05);
+  }
+  
+  li:focus, #burgerMenu:focus{
+    outline: none;
+    transform: scale(0.95);
+    box-shadow: 4px 4px 10px 0 rgba(0,0,0,.1), -4px -4px 10px rgba(255,255,255,1), 4px 4px 10px 0 rgba(0,0,0,.1) inset, -4px -4px 10px rgba(255,255,255,1) inset;
+  }
+  
+  li:hover, li:focus, #burgerMenu:hover, #burgerMenu:focus{
+    color: #187bcd;
+  }
+  
+  /* Clear 'a' link formatting */
+  a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Hide the burger menu initially */
+  #burgerMenu{
+    visibility: hidden;
+  }
+  
+  /* When the screen size is small: 
+      hide all of the current contents of the navbar, 
+      reshow the name, 
+      show the burger menu
+      respace the elements
+  */
+  @media only screen and (max-width: 1034px) {
+    a.mainLink{
+      visibility: hidden;
+      display: none;
+    }
+    #burgerMenu{
+      visibility: visible;
+    }
+    .nav{
+      justify-content: space-between;
+    }
+  }
+  
+  
+  /* Dropdown CSS from here */
+  .dropdownLink{
+    margin: 0 0 0 0 !important;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #efeeee;
+    min-width: 160px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (used in JS) */
+  .show {
+    display:block;
+  }
+  
+  @media only screen and (min-width: 1035px) {
+    .dropdown{
+      display: none;
+  }
+  }

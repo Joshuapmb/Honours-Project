@@ -1,0 +1,96 @@
+
+  <ul class="nav">
+    
+      <!-- Routing to about me page when my name is clicked -->
+      <li class="logo">
+        <a routerLink="/homepage">
+          ATHESA
+        </a>
+      </li>
+  
+      <!-- Routing to about me page -->
+      <a routerLink="/theOffice" class= "mainLink">
+        <li tabindex="0">
+          <nav>
+            The Office
+          </nav>
+        </li>
+      </a>
+  
+      <!-- Routing to CV page -->
+      <a routerLink="/theLivingRoom" class= "mainLink">
+        <li tabindex="0">
+          <nav>
+            The Living Room
+          </nav>
+        </li>
+      </a>
+  
+      <!-- Routing to projects page -->
+      <a routerLink="/homepage" class= "mainLink">
+        <li tabindex="0">
+          <nav>
+            Another Place
+          </nav>
+        </li>
+      </a>
+  
+      <!-- Routing to contact details page -->
+      <a routerLink="/learnMore" class= "mainLink">
+        <li tabindex="0">
+          <nav>
+            Learn More
+          </nav>
+        </li>
+      </a>
+  
+      
+  
+  
+      <!-- Burger menu button hidden, and shown when the screen is small -->
+      <div class = "dropdown">
+  
+        <button id = "burgerMenu" type="button" (click)="showDropdown()">
+          V
+        </button>
+        
+        <div id="myDropdown" class="dropdown-content">
+          <a routerLink="/theOffice" >
+            <li tabindex="0" class = "dropdownLink">
+              <nav>
+                The Office
+              </nav>
+            </li>
+          </a>
+  
+          <a routerLink="/theLivingRoom">
+            <li tabindex="0" class = "dropdownLink">
+              <nav>
+                The Living Room
+              </nav>
+            </li>
+          </a>
+  
+          <a routerLink="/homepage" >
+            <li tabindex="0" class = "dropdownLink">
+              <nav>
+                Another Place
+              </nav>
+            </li>
+          </a>
+  
+          <a routerLink="/learnMore" >
+            <li tabindex="0" class = "dropdownLink">
+              <nav>
+                Learn More
+              </nav>
+            </li>
+          </a>
+  
+        </div>
+  
+      </div>
+  
+  </ul>
+  
+  
