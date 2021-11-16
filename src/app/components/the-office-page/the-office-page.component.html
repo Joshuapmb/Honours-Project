@@ -1,1 +1,27 @@
-<p>the-office-page works!</p>
+<body>
+
+    <p>the-office-page works!</p>
+
+    
+    <input type="checkbox" id="test" (click)="toggleTinnitus('test')">
+    <label for="test">Play Tinnitus: Test </label>
+
+    <br>
+
+    <input type="checkbox" id="tinnitus4KhzTWave" (click)="toggleTinnitus('4KhzTWave')">
+    <label for="tinnitus4KhzTWave">Play Tinnitus: 4Khz Triangle Wave </label>
+
+
+    <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
+    <div class="officeSetup">
+        <img class="image1" src="https://via.placeholder.com/500" />
+        <img class="image2" src="https://via.placeholder.com/200" />
+    </div>
+
+    <!-- Inside the officesetupcbd, put ngif statements so 'if cdb x is true then set display to show' -->
+    <!-- <div class="officeSetupCBD">
+        <img class="image1" src="https://via.placeholder.com/50" />
+        <img class="image2" src="https://via.placeholder.com/100" />
+    </div> -->
+
+</body>
