@@ -9,7 +9,7 @@ import { TheOfficePageComponent } from './components/the-office-page/the-office-
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/hompage', pathMatch: 'full' },
+  { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent },
   { path: 'learnMore', component: LearnMorePageComponent },
   { path: 'theLivingRoom', component: TheLivingRoomPageComponent },
