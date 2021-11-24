@@ -21,47 +21,47 @@ export class TheOfficePageComponent implements OnInit {
   toggleTinnitus(selectedSound: string){
     
     if (selectedSound == "4KhzTWave"){
-      this.audio.src = "../../../assets/4 Khz Triangle Wave.wav"
+      this.audio.src = "../../../assets/tinnitusSounds/4 Khz Triangle Wave.wav"
       this.activeTinnitusButton = document.getElementById("tinnitus4KhzTWave")
     }
     else if(selectedSound == "5KhzIWave"){
-      this.audio.src = "../../../assets/5 Khz Impulse Wave.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/5 Khz Impulse Wave.wav";
       this.activeTinnitusButton = document.getElementById("tinnitus5KhzIWave")
     }
     else if(selectedSound == "5KhzSWave"){
-      this.audio.src = "../../../assets/5 Khz Square Wave.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/5 Khz Square Wave.wav";
       this.activeTinnitusButton = document.getElementById("tinnitus5KhzSWave")
     }
     else if(selectedSound == "8KhzTWave"){
-      this.audio.src = "../../../assets/8 Khz Triangle Wave.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/8 Khz Triangle Wave.wav";
       this.activeTinnitusButton = document.getElementById("tinnitus8KhzTWave")
     }
     else if(selectedSound == "10KhzSinWave"){
-      this.audio.src = "../../../assets/10 Khz Sine Wave.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/10 Khz Sine Wave.wav";
       this.activeTinnitusButton = document.getElementById("tinnitus10KhzSinWave")
     }
     else if(selectedSound == "13KhzSWave"){
-      this.audio.src = "../../../assets/13 Khz Square Wave.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/13 Khz Square Wave.wav";
       this.activeTinnitusButton = document.getElementById("tinnitus13KhzSWave")
     }
     else if(selectedSound == "14KhzSinWave"){
-      this.audio.src = "../../../assets/14 Khz Sine Wave.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/14 Khz Sine Wave.wav";
       this.activeTinnitusButton = document.getElementById("tinnitus14KhzSinWave")
     }
     else if(selectedSound == "200hzIWave"){
-      this.audio.src = "../../../assets/200 Hz Impulse Wave.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/200 Hz Impulse Wave.wav";
       this.activeTinnitusButton = document.getElementById("tinnitus200hzIWave")
     }
     else if(selectedSound == "BrownNoise"){
-      this.audio.src = "../../../assets/Brown Noise.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/Brown Noise.wav";
       this.activeTinnitusButton = document.getElementById("tinnitusBrownNoise")
     }
     else if(selectedSound == "VioletNoise"){
-      this.audio.src = "../../../assets/Violet Noise.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/Violet Noise.wav";
       this.activeTinnitusButton = document.getElementById("tinnitusVioletNoise")
     }
     else if(selectedSound == "test"){
-      this.audio.src = "../../../assets/test.wav";
+      this.audio.src = "../../../assets/tinnitusSounds/test.wav";
       this.activeTinnitusButton = document.getElementById("test")
     }
 
