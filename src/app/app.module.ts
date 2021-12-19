@@ -10,6 +10,7 @@ import { TheOfficePageComponent } from './components/the-office-page/the-office-
 import { TheLivingRoomPageComponent } from './components/the-living-room-page/the-living-room-page.component';
 import { LearnMorePageComponent } from './components/learn-more-page/learn-more-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DisabilityMenuComponent } from './components/disability-menu/disability-menu.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomepageComponent,
     TheOfficePageComponent,
     TheLivingRoomPageComponent,
-    LearnMorePageComponent
+    LearnMorePageComponent,
+    DisabilityMenuComponent
   ],
   imports: [
     BrowserModule,

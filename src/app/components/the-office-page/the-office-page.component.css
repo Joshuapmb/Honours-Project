@@ -7,50 +7,82 @@ body{
   position: relative;
   display: inline-block;
 }
+
 #background {
   position: relative;
   max-width: 100%;
   width: 100%;
   height: auto;
 }
-#phone {
+
+/* All interabtables will have this outline */
+.interactableButton{
   position: absolute;
+  outline: yellow;
+  outline-style: dotted;
+  background-color: rgba(232, 232, 232, 0.25);
+  border-color: transparent;
+}
+
+/* All interatables will have a change of outline when hovered on  */
+.interactableButton:hover{
+  outline-style: solid;
+}
+
+/* Placement and size of phone interactable */
+#phone {
   right: 5.5%;
-  top: 52%;
+  top: 53%;
+  height: 10.5%;
   width: 5%;
   max-width: 5%;
 }
-#phone:hover{
-  outline: yellow;
-  outline-style: dotted;
+
+#speaker1{
+  right: 60.2%;
+  top: 45%;
+  height: 12%;
+  width: 5.5%;
+  max-width: 5.5%;
+}
+
+#speaker2{
+  right: 17.5%;
+  top: 45%;
+  height: 12%;
+  width: 6%;
+  max-width: 6%;
+}
+
+#screen1{
+  right: 48%;
+  top: 33%;
+  height: 23%;
+  width: 10%;
+  max-width: 10%;
+}
+
+#screen2{
+  right: 26%;
+  top: 33%;
+  height: 17%;
+  width: 21%;
+  max-width: 21%;
+}
+
+#book{
+  right: 9%;
+  top: 33%;
+  height: 8%;
+  width: 5.5%;
+  max-width: 5.5%;
+}
+
+.modal-body{
+  padding: 0% 0% 0% 0%;
 }
 
 
-
-
-  button{
-    margin: 0 1rem;
-    padding: 0.5rem 1.5rem;
-    border: 2px solid rgba(255,255,255,.3);
-    box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
-    border-radius: 10px;   
-    cursor: pointer;
-    transition: color 0.2s ease-out, transform 0.2s ease-out;
-    color: dimgray;
-  }
-
-  button:hover{
-    transform: scale(1.05);
-  }
-
-  button:focus{
-    outline: none;
-  }
-  
-  button:hover{
-    color: #187bcd;
-  }
-
-  button:disabled{
-    background-color: rgba(0,0,0,.1);
-  }
+#infoBookImage{
+  max-width: 100%;
+}

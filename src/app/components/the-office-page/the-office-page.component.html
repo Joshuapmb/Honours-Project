@@ -4,8 +4,16 @@
     <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
     <div id="officeSetup">
         <img id="background" src="../../../assets/officeAssets/normalVision/Office Background.png" />
-        <img id="phone" src="../../../assets/officeAssets/normalVision/phone.png" />
+        <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
+        <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music"></button>
+        <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music"></button>
+        <!-- The link/iframe needs to be css'ed so it just looks uniform  -->
+        <button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"><iframe src="https://itch.io/embed/520359" height="12" width="52" frameborder="0"><a href="https://pixelzenstudios.itch.io/inverted-space"></a></iframe></button>
+        <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
+        <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
     </div>
+
+
 
     <!-- Inside the officesetupcbd, put ngif statements so 'if cdb x is true then set display to show' -->
     <!-- <div class="officeSetupCBD">
@@ -14,40 +22,73 @@
     </div> -->
 
 
-    <br>
-    <button type="button" id="test" class="tinnitusButton" (click)="toggleTinnitus('test')">Play Test</button>
+
+    <!-- Phone Modal Content -->
+    <ng-template #bookModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Interesting Facts About Disabilities</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="carouselCont">
+                <ngb-carousel *ngIf="images">
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook.png" alt="A Book">
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook2.png" alt="A Book">
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook3.png" alt="A Book">
+                    </div>
+                  </ng-template>
+                </ngb-carousel>
+              </div>
+        </div>
+      </ng-template>
+
+
+      <!-- Screen2 Modal Content -->
+    <ng-template #musicModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Time Change My Music</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+      </ng-template>
+
+
+      <!-- Phone Modal Content -->
+      <ng-template #phoneModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">"Ring Ring"</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+      </ng-template>
+
+
+
+
 
     <br>
-    <button type="button" id="tinnitus4KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('4KhzTWave')">Play Tinnitus: 4kHz Triangle Wave</button>
 
-    <br>
-    <button type="button" id="tinnitus5KhzIWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzIWave')">Play Tinnitus: 5kHz Impulse Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus5KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzSWave')">Play Tinnitus: 5kHz Square Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus8KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('8KhzTWave')">Play Tinnitus: 8kHz Triangle Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus10KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('10KhzSinWave')">Play Tinnitus: 10kHz Sine Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus13KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('13KhzSWave')">Play Tinnitus: 13kHz Square Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus14KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('14KhzSinWave')">Play Tinnitus: 14kHz Sine Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus200hzIWave" class="tinnitusButton" (click)="toggleTinnitus('200hzIWave')">Play Tinnitus: 200Hz Impulse Wave</button>
-
-    <br>
-    <button type="button" id="tinnitusBrownNoise" class="tinnitusButton" (click)="toggleTinnitus('BrownNoise')">Play Tinnitus: Brown Noise</button>
-
-    <br>
-    <button type="button" id="tinnitusVioletNoise" class="tinnitusButton" (click)="toggleTinnitus('VioletNoise')">Play Tinnitus: Violet Noise</button>
-
-
-
+    <app-disability-menu></app-disability-menu>
 
 </body>
