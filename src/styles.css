@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 *{
     font-family: 'Open Sans', sans-serif;
+    
 }
 
 body{
     margin: 0px 0px 0px 0px;
     background-color: #efeeee;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
