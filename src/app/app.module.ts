@@ -9,6 +9,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { TheOfficePageComponent } from './components/the-office-page/the-office-page.component';
 import { TheLivingRoomPageComponent } from './components/the-living-room-page/the-living-room-page.component';
 import { LearnMorePageComponent } from './components/learn-more-page/learn-more-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LearnMorePageComponent } from './components/learn-more-page/learn-more-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,49 +1,54 @@
 <body>
-        
-    <h1>Welcome to the Accessibility Through Empathy Simulation Application, or ATHESA for short!</h1>
 
-    <br>
-
-    <p>
-        This is the homepage and will tell the user all about what the app does, 
-        telling user's how to use it, and giving them sources of where to find out more info
-    </p>
-
-    <br>
-
-    <p>
-        I want to put a carousel here but having issues with bootstrap and angular v13! 
-        I've added a link to the stylesheet in app.component.html, and have also added the script lines from https://getbootstrap.com/docs/4.0/getting-started/introduction/ to it.
-        I've also addedthe same script lines to this file but the carousel does not work still.
-    </p>
-
-
-    <div class="alert alert-primary" role="alert">
-        This is a primary alert—check it out!
-    </div>
-
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="../../../assets/logo.png" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="../../../assets/dog.jpg" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Third slide">
-          </div>
+  <br>
+  
+  <div class="carouselCont">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[0]" alt="Random first slide">
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <div class="carousel-caption">
+          <h3>Welcome to the ATHESA</h3>
+          <p>Accessibility Through Empathy Simulation Application</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[2]" alt="Random third slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>ATHESA's Purpose</h3>
+          <p>Those with disabilities can often be left out and unaccommodated for. ATHESA puts us in
+            their shoes so that we can hopefully better understand their challenges, find solutions for them,
+            and make the world an easier place to live in.
+          </p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[1]" alt="Random second slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>How to use ATHESA</h3>
+          <p>Use the bar at the top to navigate between different rooms; each room will have items to interact with.
+            Interact with the items normally, before using the bar at the side to simulate disabilities. Notice the
+            difference!
+          </p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[2]" alt="Random third slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>Still Interested?</h3>
+          <p>To find out more about certain disabilities, navigate to the 'Learn More' tab and watch
+            some of the videos.
+          </p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
 </body>

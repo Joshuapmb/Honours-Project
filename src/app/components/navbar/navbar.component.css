@@ -10,7 +10,7 @@
   
   .nav{
       width: 100vw;
-      height: 100px;
+      height: 15vh;
       background-color: #efeeee;
       display: flex;
       justify-content: flex-end;
