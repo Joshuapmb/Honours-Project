@@ -13,15 +13,41 @@ export class TheOfficePageComponent implements OnInit {
     config.showNavigationIndicators = false;
    }
 
+
+
+   
+  officeBackgroundMusic = new Audio(); 
+  musicPlaying = true;
+
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+
+
   ngOnInit(): void {
-    
+    this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
+    this.officeBackgroundMusic.loop = true;
+    this.officeBackgroundMusic.load();
+    this.officeBackgroundMusic.play();
   }
 
+
+  // Open modals when clicking on different items in the office
   openBackDropCustomClass(content: any) {
     this.modalService.open(content);
   }
 
-  
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+  // When the speakers are clicked, turn the music on or off
+  toggleMusic(){
+    if (this.musicPlaying == true){
+      this.officeBackgroundMusic.pause();
+      this.musicPlaying = false;
+    }
+    else{
+      this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
+    }
+  }
+
 
 }

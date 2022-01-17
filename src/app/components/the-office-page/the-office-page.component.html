@@ -5,8 +5,8 @@
     <div id="officeSetup">
         <img id="background" src="../../../assets/officeAssets/normalVision/Office Background.png" />
         <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
-        <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music"></button>
-        <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music"></button>
+        <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
+        <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <!-- The link/iframe needs to be css'ed so it just looks uniform  -->
         <a href="https://pixelzenstudios.itch.io/inverted-space" target="_blank"><button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"></button></a>
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
@@ -65,7 +65,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>One fine body&hellip;</p>
+          <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection">
         </div>
       </ng-template>
 
