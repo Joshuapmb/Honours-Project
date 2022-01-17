@@ -8,7 +8,7 @@
         <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music"></button>
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music"></button>
         <!-- The link/iframe needs to be css'ed so it just looks uniform  -->
-        <button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"><iframe src="https://itch.io/embed/520359" height="12" width="52" frameborder="0"><a href="https://pixelzenstudios.itch.io/inverted-space"></a></iframe></button>
+        <a href="https://pixelzenstudios.itch.io/inverted-space" target="_blank"><button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"></button></a>
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
     </div>
@@ -23,7 +23,7 @@
 
 
 
-    <!-- Phone Modal Content -->
+    <!-- Book Modal Content -->
     <ng-template #bookModal let-modal>
         <div class="modal-header">
           <h4 class="modal-title">Interesting Facts About Disabilities</h4>
@@ -59,7 +59,7 @@
       <!-- Screen2 Modal Content -->
     <ng-template #musicModal let-modal>
         <div class="modal-header">
-          <h4 class="modal-title">Time Change My Music</h4>
+          <h4 class="modal-title">Time To Change My Music</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
