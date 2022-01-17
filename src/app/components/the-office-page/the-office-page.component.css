@@ -3,11 +3,17 @@ body{
     margin-right: 10% !important;
 }
 
+
+
+/* Following is for main office setup CSS */
+
+/* CSS for div containing all of the office */
 #officeSetup {
   position: relative;
   display: inline-block;
 }
 
+/* CSS for the main office background image */
 #background {
   position: relative;
   max-width: 100%;
@@ -38,6 +44,7 @@ body{
   max-width: 5%;
 }
 
+/* Placement and size of speaker interactable */
 #speaker1{
   right: 60.2%;
   top: 45%;
@@ -46,6 +53,7 @@ body{
   max-width: 5.5%;
 }
 
+/* Placement and size of speaker interactable */
 #speaker2{
   right: 17.5%;
   top: 45%;
@@ -54,6 +62,7 @@ body{
   max-width: 6%;
 }
 
+/* Placement and size of screen interactable */
 #screen1{
   right: 48%;
   top: 33%;
@@ -62,6 +71,7 @@ body{
   max-width: 10%;
 }
 
+/* Placement and size of screen interactable */
 #screen2{
   right: 26%;
   top: 33%;
@@ -70,6 +80,7 @@ body{
   max-width: 21%;
 }
 
+/* Placement and size of book interactable */
 #book{
   right: 9%;
   top: 33%;
@@ -78,6 +89,12 @@ body{
   max-width: 5.5%;
 }
 
+
+
+
+
+/* Using an interactable / opening its modal CSS follows */
+
 .modal-body{
   padding: 0% 0% 0% 0%;
 }
@@ -85,4 +102,49 @@ body{
 
 #infoBookImage{
   max-width: 100%;
+}
+
+
+
+
+
+
+/* Following is for changing song CSS */
+
+/* Song select on screen 2 */
+#songSelect {
+  position: relative;
+  display: inline-block;
+}
+
+/* Background for modal body when screen 2 selected */
+#songSelectBackground {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+#enigmaticSong{
+  right: 1%;
+  top: 67.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+#jazzyFrenchSong{
+  right: 1%;
+  top: 78.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+#happyRockSong{
+  right: 1%;
+  top: 90.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
 }

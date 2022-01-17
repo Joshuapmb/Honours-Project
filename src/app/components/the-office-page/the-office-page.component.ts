@@ -1,3 +1,4 @@
+import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
 import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import {NgbModal, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
@@ -24,10 +25,10 @@ export class TheOfficePageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
-    this.officeBackgroundMusic.loop = true;
-    this.officeBackgroundMusic.load();
-    this.officeBackgroundMusic.play();
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
+      this.officeBackgroundMusic.loop = true;
+      this.officeBackgroundMusic.load();
+      this.officeBackgroundMusic.play();
   }
 
 
@@ -47,6 +48,26 @@ export class TheOfficePageComponent implements OnInit {
       this.officeBackgroundMusic.play();
       this.musicPlaying = true;
     }
+  }
+
+  // When screen 2 is selected and the user changes the Song by pressing the buttons on the modal, this method is called
+  changeSong(song: string){
+    if(song=="enigmatic"){
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
+      this.officeBackgroundMusic.load();
+      this.officeBackgroundMusic.play();
+    }
+    if(song=="jazzyFrench"){
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/jazzyfrenchy.mp3"
+      this.officeBackgroundMusic.load();
+      this.officeBackgroundMusic.play();
+    }
+    if(song=="happyRock"){
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/happyrock.mp3"
+      this.officeBackgroundMusic.load();
+      this.officeBackgroundMusic.play();
+    }
+
   }
 
 

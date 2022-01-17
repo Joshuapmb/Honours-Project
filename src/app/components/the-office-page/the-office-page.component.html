@@ -7,7 +7,6 @@
         <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
         <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
-        <!-- The link/iframe needs to be css'ed so it just looks uniform  -->
         <a href="https://pixelzenstudios.itch.io/inverted-space" target="_blank"><button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"></button></a>
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
@@ -64,8 +63,11 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection">
+        <div class="modal-body" id = "songSelect">
+          <img id = "songSelectBackground" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection">
+          <button class = "interactableButton" id = "enigmaticSong" ngbTooltip="Change the song to something generic" (click)="changeSong('enigmatic')"></button>
+          <button class = "interactableButton" id = "jazzyFrenchSong" ngbTooltip="Change the song to something jazzy" (click)="changeSong('jazzyFrench')"></button>
+          <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
         </div>
       </ng-template>
 
