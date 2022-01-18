@@ -1,6 +1,15 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<!-- Navbar cover -->
+<button *ngIf = "officeEntered" id="navbarCover" (click)="toggleOffice()">Click Here To Leave The Office</button>
+
+
+
 <body>
 
-    
+  <br>  
+
     <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
     <div id="officeSetup">
         <img id="background" src="../../../assets/officeAssets/normalVision/Office Background.png" />
@@ -10,6 +19,8 @@
         <a href="https://pixelzenstudios.itch.io/inverted-space" target="_blank"><button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"></button></a>
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
+
+        <button *ngIf = "!officeEntered" id="enterRoomCover" (click)="toggleOffice()">Click Here To Enter The Office</button>
     </div>
 
 
@@ -91,5 +102,8 @@
     <br>
 
     <app-disability-menu></app-disability-menu>
+
+    <br>
+    <br>
 
 </body>

@@ -10,6 +10,16 @@ export class DisabilityMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // if (sessionStorage.getItem("tinnitusPlaying") === "true"){
+    //   this.arrayOfTinnitusButtons = document.getElementsByClassName("tinnitusButton")
+    //   for (var i = 0 ; i<this.arrayOfTinnitusButtons.length; i++){
+    //     this.arrayOfTinnitusButtons[i].disabled = true 
+    //   }
+    //   this.activeTinnitusButton = sessionStorage.getItem("activeTinnitusButton")
+    //   this.activeTinnitusButton.disabled = false
+
+    // }
+
   }
 
   audioPlaying = false;
@@ -17,8 +27,8 @@ export class DisabilityMenuComponent implements OnInit {
   activeTinnitusButton : any;
   arrayOfTinnitusButtons : any;
 
+
   toggleTinnitus(selectedSound: string){
-    
     if (selectedSound == "4KhzTWave"){
       this.audio.src = "../../../assets/tinnitusSounds/4 Khz Triangle Wave.wav"
       this.activeTinnitusButton = document.getElementById("tinnitus4KhzTWave")
@@ -69,10 +79,13 @@ export class DisabilityMenuComponent implements OnInit {
 
     // When the audio is inactive
     if (this.audioPlaying == false){
+    // if (sessionStorage.getItem("tinnitusPlaying") === "false"){
       // Start playing it in a loop
       this.audio.play();
       this.audio.loop = true;
       this.audioPlaying = true;
+      // sessionStorage.setItem("tinnitusPlaying", "true");
+      // sessionStorage.setItem("activeTinnitusButton", this.activeTinnitusButton);
 
       // Disable the other buttons by disabling all then re-enabling the active 
       for (var i = 0 ; i<this.arrayOfTinnitusButtons.length; i++){
@@ -88,13 +101,13 @@ export class DisabilityMenuComponent implements OnInit {
       this.audio.loop = false;
       this.audio.pause();
       this.audioPlaying = false;
+      // sessionStorage.setItem("tinnitusPlaying", "false");
 
       // Re-enable the other buttons
       for (var i = 0 ; i<this.arrayOfTinnitusButtons.length; i++){
       this.arrayOfTinnitusButtons[i].disabled = false 
       }
     }
-
 
   }
 

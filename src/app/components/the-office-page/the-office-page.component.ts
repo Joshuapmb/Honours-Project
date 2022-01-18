@@ -14,35 +14,24 @@ export class TheOfficePageComponent implements OnInit {
     config.showNavigationIndicators = false;
    }
 
-   
+  // Create an audio object for office background music
   officeBackgroundMusic = new Audio(); 
-  musicPlaying = true;
+
+  // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
+  // Can be toggled true/false when the speakers are toggled within the office
+  musicPlaying = false;
+
+  // Determines whtehr the office has been entered and which covers to display
+  officeEntered = false;
 
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
-
-
-
-  // IMPORTANT ISSUE: WHEN YOUR GO FROM OFFICE TO ANOTHER PAGE THE SOUND STILL PLAYS. WHEN YOU GO BACK TO THE OFFICE ANOTHER INSTANCE OF THE 
-  // DEFAULT MUSIC PLAYS. 
   
-  //TO PREVENT THIS I COULD HAVE SESSION/LOCAL STORAGE VARIABLES CALLED OFFICEMUSICPLAYING. THIS WOULD BE TRUE WHEN THE OFFICE
-  // HAD BEEN ENTERED AND THE DEFAULT MUSIC STARTED PLAYING. THEN IN THE NAVBAR HAVE CLICK FUNCTIONS SO WHEN YOU CLICK TO NAVIGATE AROUND THE
-  // SITE, IT CHECKS FOR THOSE SESSION/LOCAL VARIABLES AND IF THEY ARE TRUE, IT WILL PAUSE THE MUSIC AND SET THE VARIABLE TO FALSE. WHEN THE
-  // OFFICE IS ENTERED AGAIN, THE DEFAULT MUSIC WOULD PLAY AND VARIABLE SET TO TRUE AGAIN. ISSUE BECAUSE THE NAVBAR HAS TO THEN ACCESS THE
-  // AUDIO OBJECTS IN SPECIFIC PAGES :(
-
-  // OR HAVE A BUTTON TO ENTER AND LEAVE THE ROOMS. WHEN YOU ENTER, THE SOUND PLAYS, THEN WHEN YOU PRESS LEAVE IT STOPS
-  // COULD HAVE FADE TRANSITIONS AND TRANSPARENT COVER OVER THE ROOMS
-
-  // SIMILAR ISSUE WITH TINNITUS NOISES, BUT PERHAPS JUST NEED GLOBAL/LOCAL/SESSION VARIABLES TO DEAL WITH THAT
-  
-  // When the page loads, play some default music which can be changed by the user
+  // When the page loads, load some default music which can be changed by the user
   ngOnInit(): void {
       this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
       this.officeBackgroundMusic.loop = true;
       this.officeBackgroundMusic.load();
-      this.officeBackgroundMusic.play();
   }
 
 
@@ -70,18 +59,40 @@ export class TheOfficePageComponent implements OnInit {
       this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
       this.officeBackgroundMusic.load();
       this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
     }
     if(song=="jazzyFrench"){
       this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/jazzyfrenchy.mp3"
       this.officeBackgroundMusic.load();
       this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
     }
     if(song=="happyRock"){
       this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/happyrock.mp3"
       this.officeBackgroundMusic.load();
       this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
     }
+  }
 
+
+ 
+  // Called when you enter and leave the office via the buttons
+  toggleOffice() {
+    // If you have been in the office, this is called as you leave
+    // Switches the covers over office/navbar and pauses music
+    if(this.officeEntered){
+      this.officeEntered = false
+      this.officeBackgroundMusic.pause();
+      this.musicPlaying = false;
+    }
+    // If you are outside the office this is called as you enter
+    // Switches the covers over office/navbar and starts/resumes music
+    else if(!this.officeEntered){
+      this.officeEntered = true
+      this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
+    }
   }
 
 

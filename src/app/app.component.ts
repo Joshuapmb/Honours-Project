@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project';
+
+  ngOnInit(): void {  
+    sessionStorage.setItem("tinnitusPlaying", "false");
+  }
+
 }

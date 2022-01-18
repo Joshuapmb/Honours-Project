@@ -10,7 +10,9 @@ body{
 /* CSS for div containing all of the office */
 #officeSetup {
   position: relative;
-  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* CSS for the main office background image */
@@ -92,13 +94,56 @@ body{
 
 
 
+/* Placement and size of enter room cover */
+#enterRoomCover{
+  right: 0%;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  background-color: rgba(232, 232, 232, 0.8);
+  border-color: transparent;
+  margin-right: auto;
+  font-size: 3rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+}
+
+
+/* Placement and size of enter room cover */
+#navbarCover{
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
+  right: 0%;
+  top: 0%;
+  z-index: 101;
+  
+  margin-right: auto;
+  align-items: center;
+  padding: 0 3rem;
+
+  font-size: 2rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+
+  background-color: #efeeee;
+
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
+}
+
+
 
 /* Using an interactable / opening its modal CSS follows */
 
 .modal-body{
   padding: 0% 0% 0% 0%;
 }
-
 
 #infoBookImage{
   max-width: 100%;
