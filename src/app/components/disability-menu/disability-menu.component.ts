@@ -16,10 +16,9 @@ export class DisabilityMenuComponent implements OnInit {
     //     this.arrayOfTinnitusButtons[i].disabled = true 
     //   }
     //   this.activeTinnitusButton = sessionStorage.getItem("activeTinnitusButton")
+    //   this.activeTinnitusButton = document.getElementById(this.activeTinnitusButton)
     //   this.activeTinnitusButton.disabled = false
-
     // }
-
   }
 
   audioPlaying = false;
@@ -85,7 +84,7 @@ export class DisabilityMenuComponent implements OnInit {
       this.audio.loop = true;
       this.audioPlaying = true;
       // sessionStorage.setItem("tinnitusPlaying", "true");
-      // sessionStorage.setItem("activeTinnitusButton", this.activeTinnitusButton);
+      // sessionStorage.setItem("activeTinnitusButton", this.activeTinnitusButton.id);
 
       // Disable the other buttons by disabling all then re-enabling the active 
       for (var i = 0 ; i<this.arrayOfTinnitusButtons.length; i++){

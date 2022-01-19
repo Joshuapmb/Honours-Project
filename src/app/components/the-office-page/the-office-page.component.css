@@ -193,3 +193,65 @@ body{
   width: 98%;
   max-width: 98%;
 }
+
+
+
+
+/* Following is for the phone CSS */
+
+#phoneHomeScreen {
+  position: relative;
+  max-width: 70%;
+  width: 70%;
+  height: auto;
+  margin-left: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#emailButton{
+  right: 66.3%;
+  top: 11.5%;
+  height: 9%;
+  width: 10%;
+  max-width: 10%;
+}
+
+#voicemailButton{
+  right: 66.3%;
+  top: 87%;
+  height: 7%;
+  width: 10%;
+  max-width: 10%;
+}
+
+#homeButton{
+  right: 23%;
+  top: 8.5%;
+  height: 7%;
+  width: 12%;
+  max-width: 10%;
+  display: none;
+  border-radius: 45%;
+}
+
+#playMessageButton{
+  right: 60.5%;
+  top: 46.5%;
+  height: 7%;
+  width: 12%;
+  max-width: 10%;
+  display: none;
+  border-radius: 45%;
+}
+
+#sendEmailButton{
+  right: 40%;
+  top: 83%;
+  height: 7%;
+  width: 20%;
+  max-width: 20%;
+  display: none;
+  border-radius: 45%;
+}

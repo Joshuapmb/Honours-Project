@@ -86,13 +86,20 @@
       <!-- Phone Modal Content -->
       <ng-template #phoneModal let-modal>
         <div class="modal-header">
-          <h4 class="modal-title">"Ring Ring"</h4>
+          <h4 class="modal-title">I should click the phone app</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>One fine body&hellip;</p>
+          <img id = "phoneHomeScreen" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen">
+          <!-- Home screen buttons -->
+          <button class = "interactableButton" id = "emailButton" ngbTooltip="Open the email app" (click)="goToEmail()"></button>
+          <button class = "interactableButton" id = "voicemailButton" ngbTooltip="Open the phone app" (click)="goToVoicemail()"></button>
+          <!-- Email/Voicemail screen buttons -->
+          <button class = "interactableButton" id = "homeButton" ngbTooltip="Go back to home screen" (click)="goToHome()"></button>
+          <button class = "interactableButton" id = "sendEmailButton" ngbTooltip="Send email" (click)="sendEmail()"></button>
+          <button class = "interactableButton" id = "playMessageButton" ngbTooltip="Play voice messages" (click)="playMessage()"></button>
         </div>
       </ng-template>
 

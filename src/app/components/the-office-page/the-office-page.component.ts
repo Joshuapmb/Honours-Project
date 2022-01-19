@@ -24,6 +24,13 @@ export class TheOfficePageComponent implements OnInit {
   // Determines whtehr the office has been entered and which covers to display
   officeEntered = false;
 
+  phoneScreen:any
+  emailButton:any
+  voicemailButton:any
+  homeButton:any
+  playMessageButton:any
+  sendEmailButton:any
+
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
   
@@ -93,6 +100,93 @@ export class TheOfficePageComponent implements OnInit {
       this.officeBackgroundMusic.play();
       this.musicPlaying = true;
     }
+  }
+
+
+
+
+
+  // Phone code follows
+
+  goToEmail(){
+    // Change screen to email
+    this.phoneScreen = document.getElementById("phoneHomeScreen");
+    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneEmailScreen.png";
+
+    // Remove email button
+    this.emailButton = document.getElementById("emailButton");
+    this.emailButton.style.display = "none";
+
+    // Remove voicemail button
+    this.voicemailButton = document.getElementById("voicemailButton");
+    this.voicemailButton.style.display = "none";
+
+    // Display home button
+    this.homeButton = document.getElementById("homeButton");
+    this.homeButton.style.display = "block";
+
+    // Display send email button
+    this.sendEmailButton = document.getElementById("sendEmailButton");
+    this.sendEmailButton.style.display = "block";
+    
+  }
+
+
+  goToVoicemail(){
+    this.phoneScreen = document.getElementById("phoneHomeScreen");
+    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png";
+
+    // Remove email button
+    this.emailButton = document.getElementById("emailButton");
+    this.emailButton.style.display = "none";
+
+    // Remove voicemail button
+    this.voicemailButton = document.getElementById("voicemailButton");
+    this.voicemailButton.style.display = "none";
+
+    // Display home button
+    this.homeButton = document.getElementById("homeButton");
+    this.homeButton.style.display = "block";
+
+    // Display play message button
+    this.playMessageButton = document.getElementById("playMessageButton");
+    this.playMessageButton.style.display = "block";
+
+    // Create an audio here, so when you enter this screen, it says "1 new voicemail"
+  }
+
+
+  goToHome(){
+    this.phoneScreen = document.getElementById("phoneHomeScreen");
+    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneHomeScreen.png";
+
+    // Display email button
+    this.emailButton = document.getElementById("emailButton");
+    this.emailButton.style.display = "block";
+
+    // Disaply voicemail button
+    this.voicemailButton = document.getElementById("voicemailButton");
+    this.voicemailButton.style.display = "block";
+
+    // Remove home button
+    this.homeButton = document.getElementById("homeButton");
+    this.homeButton.style.display = "none";
+
+    // Remove play message button
+    this.playMessageButton = document.getElementById("playMessageButton");
+    this.playMessageButton.style.display = "none";
+
+    // Remove send email button
+    this.sendEmailButton = document.getElementById("sendEmailButton");
+    this.sendEmailButton.style.display = "none";
+  }
+
+  playMessage(){
+    // An audio needs to be made and the message would be played here when the button is clicked. Audio from goToVoicemail may need to be paused
+  }
+
+  sendEmail(){
+    // Text areas are cleared or content, and whoosh noise made
   }
 
 
