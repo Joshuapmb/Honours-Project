@@ -96,10 +96,12 @@
           <!-- Home screen buttons -->
           <button class = "interactableButton" id = "emailButton" ngbTooltip="Open the email app" (click)="goToEmail()"></button>
           <button class = "interactableButton" id = "voicemailButton" ngbTooltip="Open the phone app" (click)="goToVoicemail()"></button>
-          <!-- Email/Voicemail screen buttons -->
+          <!-- Email/Voicemail screen buttons/text areas -->
           <button class = "interactableButton" id = "homeButton" ngbTooltip="Go back to home screen" (click)="goToHome()"></button>
           <button class = "interactableButton" id = "sendEmailButton" ngbTooltip="Send email" (click)="sendEmail()"></button>
           <button class = "interactableButton" id = "playMessageButton" ngbTooltip="Play voice messages" (click)="playMessage()"></button>
+          <textarea readonly class = "emailTextarea" id = "emailRecipientTextarea" ngbTooltip="This is Geoff's email address">Recipient: geoff@ATHESA.com</textarea>
+          <textarea  class = "emailTextarea" id = "emailMessageTextarea" ngbTooltip="I should write my answers here before sending the email"></textarea>
         </div>
       </ng-template>
 

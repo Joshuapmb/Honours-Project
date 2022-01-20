@@ -30,6 +30,8 @@ export class TheOfficePageComponent implements OnInit {
   homeButton:any
   playMessageButton:any
   sendEmailButton:any
+  emailRecipientTextarea:any
+  emailMessageTextarea:any
 
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
@@ -128,6 +130,14 @@ export class TheOfficePageComponent implements OnInit {
     // Display send email button
     this.sendEmailButton = document.getElementById("sendEmailButton");
     this.sendEmailButton.style.display = "block";
+
+    // Display email recipient text area 
+    this.emailRecipientTextarea = document.getElementById("emailRecipientTextarea");
+    this.emailRecipientTextarea.style.display = "block";
+
+    // Display email message text area 
+    this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
+    this.emailMessageTextarea.style.display = "block";
     
   }
 
@@ -152,7 +162,7 @@ export class TheOfficePageComponent implements OnInit {
     this.playMessageButton = document.getElementById("playMessageButton");
     this.playMessageButton.style.display = "block";
 
-    // Create an audio here, so when you enter this screen, it says "1 new voicemail"
+    // TODO Create an audio here, so when you enter this screen, it says "1 new voicemail"
   }
 
 
@@ -179,14 +189,26 @@ export class TheOfficePageComponent implements OnInit {
     // Remove send email button
     this.sendEmailButton = document.getElementById("sendEmailButton");
     this.sendEmailButton.style.display = "none";
+
+    // Remove email recipient text area 
+    this.emailRecipientTextarea = document.getElementById("emailRecipientTextarea");
+    this.emailRecipientTextarea.style.display = "none";
+
+    // Remove email message text area 
+    this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
+    this.emailMessageTextarea.style.display = "none";
   }
 
   playMessage(){
-    // An audio needs to be made and the message would be played here when the button is clicked. Audio from goToVoicemail may need to be paused
+    // TODO An audio needs to be made and the message would be played here when the button is clicked. Audio from goToVoicemail may need to be paused
   }
 
   sendEmail(){
-    // Text areas are cleared or content, and whoosh noise made
+    // Remove email message text area contents
+    this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
+    this.emailMessageTextarea.value = "";
+
+    // TODO whoosh noise made
   }
 
 
