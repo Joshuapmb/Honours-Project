@@ -13,6 +13,8 @@
     <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
     <div id="officeSetup">
         <img id="background" src="../../../assets/officeAssets/normalVision/Office Background.png" />
+        <!-- <img id="background" *ngIf = "!musicPlaying" src="../../../assets/officeAssets/normalVision/Office Background.png" /> -->
+        <!-- <img id="background" *ngIf = "musicPlaying" src="../../../assets/officeAssets/protanomaly/Office Background.png" /> -->
         <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
         <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
@@ -100,7 +102,7 @@
           <button class = "interactableButton" id = "homeButton" ngbTooltip="Go back to home screen" (click)="goToHome()"></button>
           <button class = "interactableButton" id = "sendEmailButton" ngbTooltip="Send email" (click)="sendEmail()"></button>
           <button class = "interactableButton" id = "playMessageButton" ngbTooltip="Play voice messages" (click)="playMessage()"></button>
-          <textarea readonly class = "emailTextarea" id = "emailRecipientTextarea" ngbTooltip="This is Geoff's email address">Recipient: geoff@ATHESA.com</textarea>
+          <textarea readonly class = "emailTextarea" id = "emailRecipientTextarea" ngbTooltip="This is Josh's email address">Recipient: josh@ATHESA.com</textarea>
           <textarea  class = "emailTextarea" id = "emailMessageTextarea" ngbTooltip="I should write my answers here before sending the email"></textarea>
         </div>
       </ng-template>

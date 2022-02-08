@@ -17,6 +17,12 @@ export class TheOfficePageComponent implements OnInit {
   // Create an audio object for office background music
   officeBackgroundMusic = new Audio(); 
 
+  // Create an audio object for sending an email
+  emailSound = new Audio();
+
+  // Create an audio object for listening to the voicemail
+  voicemailSound = new Audio(); 
+
   // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
   // Can be toggled true/false when the speakers are toggled within the office
   musicPlaying = false;
@@ -41,6 +47,13 @@ export class TheOfficePageComponent implements OnInit {
       this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
       this.officeBackgroundMusic.loop = true;
       this.officeBackgroundMusic.load();
+
+      
+      this.emailSound.src = "../../../assets/officeAssets/audio/emailSentSound.wav"
+      this.emailSound.load();
+
+      this.voicemailSound.src = "../../../assets/officeAssets/audio/voicemail.wav"
+      this.voicemailSound.load();
   }
 
 
@@ -110,6 +123,7 @@ export class TheOfficePageComponent implements OnInit {
 
   // Phone code follows
 
+  // When user clicks the email app from the home screen
   goToEmail(){
     // Change screen to email
     this.phoneScreen = document.getElementById("phoneHomeScreen");
@@ -141,7 +155,7 @@ export class TheOfficePageComponent implements OnInit {
     
   }
 
-
+  // When the user opens the voicemail app from the homescreen
   goToVoicemail(){
     this.phoneScreen = document.getElementById("phoneHomeScreen");
     this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png";
@@ -162,10 +176,9 @@ export class TheOfficePageComponent implements OnInit {
     this.playMessageButton = document.getElementById("playMessageButton");
     this.playMessageButton.style.display = "block";
 
-    // TODO Create an audio here, so when you enter this screen, it says "1 new voicemail"
   }
 
-
+  // When the user closes the app by pressing the 'close(X)' button
   goToHome(){
     this.phoneScreen = document.getElementById("phoneHomeScreen");
     this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneHomeScreen.png";
@@ -199,16 +212,19 @@ export class TheOfficePageComponent implements OnInit {
     this.emailMessageTextarea.style.display = "none";
   }
 
+  // Plays voicemail when the user clicks '1' in the voicemail app
   playMessage(){
-    // TODO An audio needs to be made and the message would be played here when the button is clicked. Audio from goToVoicemail may need to be paused
+    this.voicemailSound.play()
   }
 
+  // When the user presses 'send' on the email app, this happens:
   sendEmail(){
     // Remove email message text area contents
     this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
     this.emailMessageTextarea.value = "";
 
-    // TODO whoosh noise made
+    // Play sound effect to notify that email is sent
+    this.emailSound.play();
   }
 
 
