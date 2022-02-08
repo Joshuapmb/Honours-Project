@@ -1,53 +1,120 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<!-- Navbar cover -->
+<button *ngIf = "officeEntered" id="navbarCover" (click)="toggleOffice()">Click Here To Leave The Office</button>
+
+
+
 <body>
 
-    <p>the-office-page works!</p>
-
-
-    <br>
-    <button type="button" id="test" class="tinnitusButton" (click)="toggleTinnitus('test')">Play Test</button>
-
-    <br>
-    <button type="button" id="tinnitus4KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('4KhzTWave')">Play Tinnitus: 4kHz Triangle Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus5KhzIWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzIWave')">Play Tinnitus: 5kHz Impulse Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus5KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzSWave')">Play Tinnitus: 5kHz Square Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus8KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('8KhzTWave')">Play Tinnitus: 8kHz Triangle Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus10KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('10KhzSinWave')">Play Tinnitus: 10kHz Sine Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus13KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('13KhzSWave')">Play Tinnitus: 13kHz Square Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus14KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('14KhzSinWave')">Play Tinnitus: 14kHz Sine Wave</button>
-
-    <br>
-    <button type="button" id="tinnitus200hzIWave" class="tinnitusButton" (click)="toggleTinnitus('200hzIWave')">Play Tinnitus: 200Hz Impulse Wave</button>
-
-    <br>
-    <button type="button" id="tinnitusBrownNoise" class="tinnitusButton" (click)="toggleTinnitus('BrownNoise')">Play Tinnitus: Brown Noise</button>
-
-    <br>
-    <button type="button" id="tinnitusVioletNoise" class="tinnitusButton" (click)="toggleTinnitus('VioletNoise')">Play Tinnitus: Violet Noise</button>
-
-
+  <br>  
 
     <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
-    <div class="officeSetup">
-        <img class="image1" src="https://via.placeholder.com/500" />
-        <img class="image2" src="https://via.placeholder.com/200" />
+    <div id="officeSetup">
+        <img id="background" src="../../../assets/officeAssets/normalVision/Office Background.png" />
+        <!-- <img id="background" *ngIf = "!musicPlaying" src="../../../assets/officeAssets/normalVision/Office Background.png" /> -->
+        <!-- <img id="background" *ngIf = "musicPlaying" src="../../../assets/officeAssets/protanomaly/Office Background.png" /> -->
+        <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
+        <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
+        <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
+        <a href="https://pixelzenstudios.itch.io/inverted-space" target="_blank"><button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"></button></a>
+        <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
+        <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
+
+        <button *ngIf = "!officeEntered" id="enterRoomCover" (click)="toggleOffice()">Click Here To Enter The Office</button>
     </div>
+
+
 
     <!-- Inside the officesetupcbd, put ngif statements so 'if cdb x is true then set display to show' -->
     <!-- <div class="officeSetupCBD">
         <img class="image1" src="https://via.placeholder.com/50" />
         <img class="image2" src="https://via.placeholder.com/100" />
     </div> -->
+
+
+
+    <!-- Book Modal Content -->
+    <ng-template #bookModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Interesting Facts About Disabilities</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="carouselCont">
+                <ngb-carousel *ngIf="images">
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook.png" alt="A Book">
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook2.png" alt="A Book">
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook3.png" alt="A Book">
+                    </div>
+                  </ng-template>
+                </ngb-carousel>
+              </div>
+        </div>
+      </ng-template>
+
+
+      <!-- Screen2 Modal Content -->
+    <ng-template #musicModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Time To Change My Music</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id = "songSelect">
+          <img id = "songSelectBackground" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection">
+          <button class = "interactableButton" id = "enigmaticSong" ngbTooltip="Change the song to something generic" (click)="changeSong('enigmatic')"></button>
+          <button class = "interactableButton" id = "jazzyFrenchSong" ngbTooltip="Change the song to something jazzy" (click)="changeSong('jazzyFrench')"></button>
+          <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
+        </div>
+      </ng-template>
+
+
+      <!-- Phone Modal Content -->
+      <ng-template #phoneModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">I should click the phone app</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id = "phoneHomeScreen" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen">
+          <!-- Home screen buttons -->
+          <button class = "interactableButton" id = "emailButton" ngbTooltip="Open the email app" (click)="goToEmail()"></button>
+          <button class = "interactableButton" id = "voicemailButton" ngbTooltip="Open the phone app" (click)="goToVoicemail()"></button>
+          <!-- Email/Voicemail screen buttons/text areas -->
+          <button class = "interactableButton" id = "homeButton" ngbTooltip="Go back to home screen" (click)="goToHome()"></button>
+          <button class = "interactableButton" id = "sendEmailButton" ngbTooltip="Send email" (click)="sendEmail()"></button>
+          <button class = "interactableButton" id = "playMessageButton" ngbTooltip="Play voice messages" (click)="playMessage()"></button>
+          <textarea readonly class = "emailTextarea" id = "emailRecipientTextarea" ngbTooltip="This is Josh's email address">Recipient: josh@ATHESA.com</textarea>
+          <textarea  class = "emailTextarea" id = "emailMessageTextarea" ngbTooltip="I should write my answers here before sending the email"></textarea>
+        </div>
+      </ng-template>
+
+
+
+
+    <br>
+
+    <app-disability-menu></app-disability-menu>
+
+    <br>
+    <br>
 
 </body>

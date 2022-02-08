@@ -1,104 +1,231 @@
-import { Component, OnInit } from '@angular/core';
+import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
+import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
+import {NgbModal, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-the-office-page',
   templateUrl: './the-office-page.component.html',
-  styleUrls: ['./the-office-page.component.css']
+  styleUrls: ['./the-office-page.component.css'],
+  providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
 })
 export class TheOfficePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal, config: NgbCarouselConfig) {
+    config.showNavigationIndicators = false;
+   }
 
+  // Create an audio object for office background music
+  officeBackgroundMusic = new Audio(); 
+
+  // Create an audio object for sending an email
+  emailSound = new Audio();
+
+  // Create an audio object for listening to the voicemail
+  voicemailSound = new Audio(); 
+
+  // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
+  // Can be toggled true/false when the speakers are toggled within the office
+  musicPlaying = false;
+
+  // Determines whtehr the office has been entered and which covers to display
+  officeEntered = false;
+
+  phoneScreen:any
+  emailButton:any
+  voicemailButton:any
+  homeButton:any
+  playMessageButton:any
+  sendEmailButton:any
+  emailRecipientTextarea:any
+  emailMessageTextarea:any
+
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+  
+  // When the page loads, load some default music which can be changed by the user
   ngOnInit(): void {
-    
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
+      this.officeBackgroundMusic.loop = true;
+      this.officeBackgroundMusic.load();
+
+      
+      this.emailSound.src = "../../../assets/officeAssets/audio/emailSentSound.wav"
+      this.emailSound.load();
+
+      this.voicemailSound.src = "../../../assets/officeAssets/audio/voicemail.wav"
+      this.voicemailSound.load();
   }
 
-  audioPlaying = false;
-  audio = new Audio();
-  activeTinnitusButton : any;
-  arrayOfTinnitusButtons : any;
 
-  toggleTinnitus(selectedSound: string){
-    
-    if (selectedSound == "4KhzTWave"){
-      this.audio.src = "../../../assets/4 Khz Triangle Wave.wav"
-      this.activeTinnitusButton = document.getElementById("tinnitus4KhzTWave")
-    }
-    else if(selectedSound == "5KhzIWave"){
-      this.audio.src = "../../../assets/5 Khz Impulse Wave.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitus5KhzIWave")
-    }
-    else if(selectedSound == "5KhzSWave"){
-      this.audio.src = "../../../assets/5 Khz Square Wave.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitus5KhzSWave")
-    }
-    else if(selectedSound == "8KhzTWave"){
-      this.audio.src = "../../../assets/8 Khz Triangle Wave.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitus8KhzTWave")
-    }
-    else if(selectedSound == "10KhzSinWave"){
-      this.audio.src = "../../../assets/10 Khz Sine Wave.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitus10KhzSinWave")
-    }
-    else if(selectedSound == "13KhzSWave"){
-      this.audio.src = "../../../assets/13 Khz Square Wave.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitus13KhzSWave")
-    }
-    else if(selectedSound == "14KhzSinWave"){
-      this.audio.src = "../../../assets/14 Khz Sine Wave.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitus14KhzSinWave")
-    }
-    else if(selectedSound == "200hzIWave"){
-      this.audio.src = "../../../assets/200 Hz Impulse Wave.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitus200hzIWave")
-    }
-    else if(selectedSound == "BrownNoise"){
-      this.audio.src = "../../../assets/Brown Noise.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitusBrownNoise")
-    }
-    else if(selectedSound == "VioletNoise"){
-      this.audio.src = "../../../assets/Violet Noise.wav";
-      this.activeTinnitusButton = document.getElementById("tinnitusVioletNoise")
-    }
-    else if(selectedSound == "test"){
-      this.audio.src = "../../../assets/test.wav";
-      this.activeTinnitusButton = document.getElementById("test")
-    }
-
-    this.arrayOfTinnitusButtons = document.getElementsByClassName("tinnitusButton")
-    this.audio.load();
-
-    // When the audio is inactive
-    if (this.audioPlaying == false){
-      // Start playing it in a loop
-      this.audio.play();
-      this.audio.loop = true;
-      this.audioPlaying = true;
-
-      // Disable the other buttons by disabling all then re-enabling the active 
-      for (var i = 0 ; i<this.arrayOfTinnitusButtons.length; i++){
-        this.arrayOfTinnitusButtons[i].disabled = true 
-      }
-      this.activeTinnitusButton.disabled = false
-    } 
+  // Open modals when clicking on different items in the office
+  openBackDropCustomClass(content: any) {
+    this.modalService.open(content);
+  }
 
 
-    // When the audio is already playing
+  // When the speakers are clicked, turn the music on or off
+  toggleMusic(){
+    if (this.musicPlaying == true){
+      this.officeBackgroundMusic.pause();
+      this.musicPlaying = false;
+    }
     else{
-      // Turn it off
-      this.audio.loop = false;
-      this.audio.pause();
-      this.audioPlaying = false;
-
-      // Re-enable the other buttons
-      for (var i = 0 ; i<this.arrayOfTinnitusButtons.length; i++){
-      this.arrayOfTinnitusButtons[i].disabled = false 
-      }
+      this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
     }
+  }
 
+  // When screen 2 is selected and the user changes the Song by pressing the buttons on the modal, this method is called
+  changeSong(song: string){
+    if(song=="enigmatic"){
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
+      this.officeBackgroundMusic.load();
+      this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
+    }
+    if(song=="jazzyFrench"){
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/jazzyfrenchy.mp3"
+      this.officeBackgroundMusic.load();
+      this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
+    }
+    if(song=="happyRock"){
+      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/happyrock.mp3"
+      this.officeBackgroundMusic.load();
+      this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
+    }
+  }
+
+
+ 
+  // Called when you enter and leave the office via the buttons
+  toggleOffice() {
+    // If you have been in the office, this is called as you leave
+    // Switches the covers over office/navbar and pauses music
+    if(this.officeEntered){
+      this.officeEntered = false
+      this.officeBackgroundMusic.pause();
+      this.musicPlaying = false;
+    }
+    // If you are outside the office this is called as you enter
+    // Switches the covers over office/navbar and starts/resumes music
+    else if(!this.officeEntered){
+      this.officeEntered = true
+      this.officeBackgroundMusic.play();
+      this.musicPlaying = true;
+    }
+  }
+
+
+
+
+
+  // Phone code follows
+
+  // When user clicks the email app from the home screen
+  goToEmail(){
+    // Change screen to email
+    this.phoneScreen = document.getElementById("phoneHomeScreen");
+    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneEmailScreen.png";
+
+    // Remove email button
+    this.emailButton = document.getElementById("emailButton");
+    this.emailButton.style.display = "none";
+
+    // Remove voicemail button
+    this.voicemailButton = document.getElementById("voicemailButton");
+    this.voicemailButton.style.display = "none";
+
+    // Display home button
+    this.homeButton = document.getElementById("homeButton");
+    this.homeButton.style.display = "block";
+
+    // Display send email button
+    this.sendEmailButton = document.getElementById("sendEmailButton");
+    this.sendEmailButton.style.display = "block";
+
+    // Display email recipient text area 
+    this.emailRecipientTextarea = document.getElementById("emailRecipientTextarea");
+    this.emailRecipientTextarea.style.display = "block";
+
+    // Display email message text area 
+    this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
+    this.emailMessageTextarea.style.display = "block";
+    
+  }
+
+  // When the user opens the voicemail app from the homescreen
+  goToVoicemail(){
+    this.phoneScreen = document.getElementById("phoneHomeScreen");
+    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png";
+
+    // Remove email button
+    this.emailButton = document.getElementById("emailButton");
+    this.emailButton.style.display = "none";
+
+    // Remove voicemail button
+    this.voicemailButton = document.getElementById("voicemailButton");
+    this.voicemailButton.style.display = "none";
+
+    // Display home button
+    this.homeButton = document.getElementById("homeButton");
+    this.homeButton.style.display = "block";
+
+    // Display play message button
+    this.playMessageButton = document.getElementById("playMessageButton");
+    this.playMessageButton.style.display = "block";
 
   }
 
+  // When the user closes the app by pressing the 'close(X)' button
+  goToHome(){
+    this.phoneScreen = document.getElementById("phoneHomeScreen");
+    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneHomeScreen.png";
+
+    // Display email button
+    this.emailButton = document.getElementById("emailButton");
+    this.emailButton.style.display = "block";
+
+    // Disaply voicemail button
+    this.voicemailButton = document.getElementById("voicemailButton");
+    this.voicemailButton.style.display = "block";
+
+    // Remove home button
+    this.homeButton = document.getElementById("homeButton");
+    this.homeButton.style.display = "none";
+
+    // Remove play message button
+    this.playMessageButton = document.getElementById("playMessageButton");
+    this.playMessageButton.style.display = "none";
+
+    // Remove send email button
+    this.sendEmailButton = document.getElementById("sendEmailButton");
+    this.sendEmailButton.style.display = "none";
+
+    // Remove email recipient text area 
+    this.emailRecipientTextarea = document.getElementById("emailRecipientTextarea");
+    this.emailRecipientTextarea.style.display = "none";
+
+    // Remove email message text area 
+    this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
+    this.emailMessageTextarea.style.display = "none";
+  }
+
+  // Plays voicemail when the user clicks '1' in the voicemail app
+  playMessage(){
+    this.voicemailSound.play()
+  }
+
+  // When the user presses 'send' on the email app, this happens:
+  sendEmail(){
+    // Remove email message text area contents
+    this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
+    this.emailMessageTextarea.value = "";
+
+    // Play sound effect to notify that email is sent
+    this.emailSound.play();
+  }
 
 
 }

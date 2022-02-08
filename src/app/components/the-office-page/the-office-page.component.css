@@ -3,50 +3,275 @@ body{
     margin-right: 10% !important;
 }
 
-.officeSetup {
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-  .image1 {
-    position: relative;
-    top: 0;
-    left: 0;
-    border: 1px red solid;
-  }
-  .image2 {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    border: 1px green solid;
-  }
+
+
+/* Following is for main office setup CSS */
+
+/* CSS for div containing all of the office */
+#officeSetup {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CSS for the main office background image */
+#background {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* All interabtables will have this outline */
+.interactableButton{
+  position: absolute;
+  outline: yellow;
+  outline-style: dotted;
+  background-color: rgba(232, 232, 232, 0.25);
+  border-color: transparent;
+}
+
+/* All interatables will have a change of outline when hovered on  */
+.interactableButton:hover{
+  outline-style: solid;
+}
+
+/* Placement and size of phone interactable */
+#phone {
+  right: 5.5%;
+  top: 53%;
+  height: 10.5%;
+  width: 5%;
+  max-width: 5%;
+}
+
+/* Placement and size of speaker interactable */
+#speaker1{
+  right: 60.2%;
+  top: 45%;
+  height: 12%;
+  width: 5.5%;
+  max-width: 5.5%;
+}
+
+/* Placement and size of speaker interactable */
+#speaker2{
+  right: 17.5%;
+  top: 45%;
+  height: 12%;
+  width: 6%;
+  max-width: 6%;
+}
+
+/* Placement and size of screen interactable */
+#screen1{
+  right: 48%;
+  top: 33%;
+  height: 23%;
+  width: 10%;
+  max-width: 10%;
+}
+
+/* Placement and size of screen interactable */
+#screen2{
+  right: 26%;
+  top: 33%;
+  height: 17%;
+  width: 21%;
+  max-width: 21%;
+}
+
+/* Placement and size of book interactable */
+#book{
+  right: 9%;
+  top: 33%;
+  height: 8%;
+  width: 5.5%;
+  max-width: 5.5%;
+}
 
 
 
 
-  button{
-    margin: 0 1rem;
-    padding: 0.5rem 1.5rem;
-    border: 2px solid rgba(255,255,255,.3);
-    box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
-    border-radius: 10px;   
-    cursor: pointer;
-    transition: color 0.2s ease-out, transform 0.2s ease-out;
-    color: dimgray;
-  }
+/* Placement and size of enter room cover */
+#enterRoomCover{
+  right: 0%;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  background-color: rgba(232, 232, 232, 0.8);
+  border-color: transparent;
+  margin-right: auto;
+  font-size: 3rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+}
 
-  button:hover{
-    transform: scale(1.05);
-  }
 
-  button:focus{
-    outline: none;
-  }
+/* Placement and size of enter room cover */
+#navbarCover{
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
+  right: 0%;
+  top: 0%;
+  z-index: 101;
   
-  button:hover{
-    color: #187bcd;
-  }
+  margin-right: auto;
+  align-items: center;
+  padding: 0 3rem;
 
-  button:disabled{
-    background-color: rgba(0,0,0,.1);
-  }
+  font-size: 2rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+
+  background-color: #efeeee;
+
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
+}
+
+
+
+/* Using an interactable / opening its modal CSS follows */
+
+.modal-body{
+  padding: 0% 0% 0% 0%;
+}
+
+#infoBookImage{
+  max-width: 100%;
+}
+
+
+
+
+
+
+/* Following is for changing song CSS */
+
+/* Song select on screen 2 */
+#songSelect {
+  position: relative;
+  display: inline-block;
+}
+
+/* Background for modal body when screen 2 selected */
+#songSelectBackground {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+#enigmaticSong{
+  right: 1%;
+  top: 67.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+#jazzyFrenchSong{
+  right: 1%;
+  top: 78.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+#happyRockSong{
+  right: 1%;
+  top: 90.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+
+
+
+/* Following is for the phone CSS */
+
+#phoneHomeScreen {
+  position: relative;
+  max-width: 70%;
+  width: 70%;
+  height: auto;
+  margin-left: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#emailButton{
+  right: 66.3%;
+  top: 11.5%;
+  height: 9%;
+  width: 10%;
+  max-width: 10%;
+}
+
+#voicemailButton{
+  right: 66.3%;
+  top: 87%;
+  height: 7%;
+  width: 10%;
+  max-width: 10%;
+}
+
+#homeButton{
+  right: 23%;
+  top: 8.5%;
+  height: 7%;
+  width: 12%;
+  max-width: 10%;
+  display: none;
+  border-radius: 45%;
+}
+
+#playMessageButton{
+  right: 60.5%;
+  top: 46.5%;
+  height: 7%;
+  width: 12%;
+  max-width: 10%;
+  display: none;
+  border-radius: 45%;
+}
+
+#sendEmailButton{
+  right: 40%;
+  top: 83%;
+  height: 7%;
+  width: 20%;
+  max-width: 20%;
+  display: none;
+  border-radius: 45%;
+}
+
+.emailTextarea{
+  resize: none;
+  display: none;
+  position: absolute;
+}
+
+#emailRecipientTextarea{
+  right: 31%;
+  top: 20%;
+  height: 5%;
+  width: 47%;
+}
+
+#emailMessageTextarea{
+  right: 22%;
+  top: 30%;
+  height: 50%;
+  width: 56.5%;
+}
