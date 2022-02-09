@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./disability-menu.component.css']
 })
 export class DisabilityMenuComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
     // Loop the Tinnitus audio
     this.audio.loop = true;
   }
+
+  
+  public isTinnitusCollapsed = true;
 
   audio = new Audio();
   activeTinnitusButton : any;
