@@ -10,24 +10,18 @@ export class DisabilityMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("tinnitusPlaying") === "true"){
-      this.arrayOfTinnitusButtons = document.getElementsByClassName("tinnitusButton")
-      for (var i = 0 ; i<this.arrayOfTinnitusButtons.length; i++){
-        this.arrayOfTinnitusButtons[i].disabled = true 
-      }
-      this.activeTinnitusButton = sessionStorage.getItem("activeTinnitusButton")
-      this.activeTinnitusButton = document.getElementById(this.activeTinnitusButton)
-      this.activeTinnitusButton.disabled = false
-    }
+    // Loop the Tinnitus audio
+    this.audio.loop = true;
   }
 
-  audioPlaying = false;
   audio = new Audio();
   activeTinnitusButton : any;
   arrayOfTinnitusButtons : any;
 
 
+  // When one of the Tinnitus buttons is clicked: 
   toggleTinnitus(selectedSound: string){
+    // The correct audio is selected, based on which button was pressed
     if (selectedSound == "4KhzTWave"){
       this.audio.src = "../../../assets/tinnitusSounds/4 Khz Triangle Wave.wav"
       this.activeTinnitusButton = document.getElementById("tinnitus4KhzTWave")
@@ -73,15 +67,16 @@ export class DisabilityMenuComponent implements OnInit {
       this.activeTinnitusButton = document.getElementById("test")
     }
 
+    // Get array of all tinnitus buttons to disable/enable them
     this.arrayOfTinnitusButtons = document.getElementsByClassName("tinnitusButton")
+
+    // Load selected audio
     this.audio.load();
 
-    // When the audio is inactive
+    // When the audio is inactive:
     if (sessionStorage.getItem("tinnitusPlaying") === "false"){
       // Start playing it in a loop
       this.audio.play();
-      this.audio.loop = true;
-      this.audioPlaying = true;
       sessionStorage.setItem("tinnitusPlaying", "true");
       sessionStorage.setItem("activeTinnitusButton", this.activeTinnitusButton.id);
 
@@ -96,9 +91,7 @@ export class DisabilityMenuComponent implements OnInit {
     // When the audio is already playing
     else{
       // Turn it off
-      this.audio.loop = false;
       this.audio.pause();
-      this.audioPlaying = false;
       sessionStorage.setItem("tinnitusPlaying", "false");
 
       // Re-enable the other buttons
