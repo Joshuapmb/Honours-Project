@@ -8,6 +8,16 @@
 <!-- The specific page's content/html -->
 <router-outlet></router-outlet>
 
+<!-- There was an issue with instancing the disability menu:
+        1. User opens an environment page, e.g. office (whose HTML instances a new disability menu and audio object)
+        2. User clicks a tinnitus button to simulate it, and relocates to another page
+        3. User returns to the original page (e.g. office) who instances a new disability menu and audio object
+        4. When user presses same tinnitus button to stop it, instead since a new audio object has been made, 2 instances of
+            the tinnitus noise now play.
+    To solve this issue, I instead instance the disability menu here in app.component.html, so there is only ever 1 instance
+    of the disability menu and it's audio. Session variables within the disability menu ensure only 1 instance is ever played. -->
+<app-disability-menu></app-disability-menu>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
