@@ -15,7 +15,7 @@ export class DisabilityMenuComponent implements OnInit {
   }
 
   
-  public isTinnitusCollapsed = true;
+  public isMenuCollapsed = true;
 
   audio = new Audio();
   activeTinnitusButton : any;
@@ -104,6 +104,19 @@ export class DisabilityMenuComponent implements OnInit {
     }
 
   }
+
+
+
+   // When one of the Tinnitus buttons is clicked: 
+   toggleColourBlindness(selectedCBD: string){
+      if (selectedCBD == "protanomaly"){
+        sessionStorage.setItem("CBD", "protanomaly")
+      }
+      else if(selectedCBD == "protanopia"){
+        sessionStorage.setItem("CBD", "protanopia")
+      }
+   }
+
 
 
 }

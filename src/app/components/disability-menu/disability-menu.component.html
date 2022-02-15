@@ -1,12 +1,18 @@
 <br>
-<button type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isTinnitusCollapsed" aria-controls="collapseExample"> 
-    Toggle Tinnitus 
+
+<!-- Tinnitus menu button -->
+<button type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="collapseExample"> 
+    Toggle Disabilities 
 </button>
 
-<div #collapse="ngbCollapse" [(ngbCollapse)]="isTinnitusCollapsed">
+
+<!-- Dropdown for Tinnitus -->
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isMenuCollapsed">
     <div class="card">
         <div class="card-body">
     
+            <!-- Buttons for Tinnitus -->
+            <h1>Tinnitus</h1>
             <button type="button" id="test" class="tinnitusButton" (click)="toggleTinnitus('test')">
                 Test
             </button>
@@ -61,9 +67,44 @@
                 Violet Noise
             </button>
 
+            
+            <!-- Buttons for colour blindness -->
+            <br>
+            <h1>Colour Blindness</h1>
+            
+            <button type="button" id="CBDprotanomaly" class="ColourBlindnessButton" (click)="toggleColourBlindness('protanomaly')">
+                Protanomaly
+            </button>
+
+            <br>
+            <button type="button" id="CBDprotanopia" class="ColourBlindnessButton" (click)="toggleColourBlindness('protanopia')">
+                Protanopia
+            </button>
+
+            <br>
+            <button type="button" id="CBDdeuteranomaly" class="ColourBlindnessButton" (click)="toggleColourBlindness('deuteranomaly')">
+                Deuteranomaly
+            </button>
+            
+            <br>
+            <button type="button" id="CBDdeuteranopia" class="ColourBlindnessButton" (click)="toggleColourBlindness('deuteranopia')">
+                Deuteranopia
+            </button>
+
+            <br>
+            <button type="button" id="CBDtritanomaly" class="ColourBlindnessButton" (click)="toggleColourBlindness('tritanomaly')">
+                Tritanomaly
+            </button>
+
+            <br>
+            <button type="button" id="CBDtritanopia" class="ColourBlindnessButton" (click)="toggleColourBlindness('tritanopia')">
+                Tritanopia
+            </button>
+
         </div>
     </div>
 </div>
+
 
 
 <br>
