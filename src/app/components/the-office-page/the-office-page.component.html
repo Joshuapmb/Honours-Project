@@ -12,8 +12,14 @@
 
     <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
     <div id="officeSetup">
-        <img id="background" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/Office Background.png" />
-        <img id="background" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/Office Background.png" />
+        <img id="background" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/Office Background.png" alt="Office Background" />
+        <img id="background" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/Office Background.png" alt="Office Background" />
+        <img id="background" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/Office Background.png" alt="Office Background" />
+        <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/Office Background.png" alt="Office Background" />
+        <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/Office Background.png" alt="Office Background" />
+        <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/Office Background.png" alt="Office Background" />
+        <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/Office Background.png" alt="Office Background" />
+
         <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
         <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
@@ -39,17 +45,35 @@
                 <ngb-carousel *ngIf="images">
                   <ng-template ngbSlide>
                     <div class="picsum-img-wrapper">
-                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook.png" alt="A Book">
+                        <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook.png" alt="A Book" />
+                        <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook.png" alt="A Book" />
+                        <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook.png" alt="A Book" />
+                        <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook.png" alt="A Book" />
+                        <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook.png" alt="A Book" />
+                        <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook.png" alt="A Book" />
+                        <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook.png" alt="A Book" />
                     </div>
                   </ng-template>
                   <ng-template ngbSlide>
                     <div class="picsum-img-wrapper">
-                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook2.png" alt="A Book">
+                      <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook2.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook2.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook2.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook2.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook2.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook2.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook2.png" alt="A Book" />
                     </div>
                   </ng-template>
                   <ng-template ngbSlide>
                     <div class="picsum-img-wrapper">
-                        <img id = "infoBookImage" src="../../../assets/officeAssets/normalVision/InfoBook3.png" alt="A Book">
+                      <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook3.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook3.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook3.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook3.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook3.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook3.png" alt="A Book" />
+                      <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook3.png" alt="A Book" />
                     </div>
                   </ng-template>
                 </ngb-carousel>
@@ -67,7 +91,14 @@
           </button>
         </div>
         <div class="modal-body" id = "songSelect">
-          <img id = "songSelectBackground" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection">
+          <img id="songSelectBackground" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection" />
+          <img id="songSelectBackground" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/screen2.png" alt="Music selection" />
+          <img id="songSelectBackground" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/screen2.png" alt="Music selection" />
+          <img id="songSelectBackground" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/screen2.png" alt="Music selection" />
+          <img id="songSelectBackground" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/screen2.png" alt="Music selection" />
+          <img id="songSelectBackground" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/screen2.png" alt="Music selection" />
+          <img id="songSelectBackground" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/screen2.png" alt="Music selection" />
+
           <button class = "interactableButton" id = "enigmaticSong" ngbTooltip="Change the song to something generic" (click)="changeSong('enigmatic')"></button>
           <button class = "interactableButton" id = "jazzyFrenchSong" ngbTooltip="Change the song to something jazzy" (click)="changeSong('jazzyFrench')"></button>
           <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
@@ -84,7 +115,14 @@
           </button>
         </div>
         <div class="modal-body">
-          <img id = "phoneHomeScreen" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen">
+          <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+
           <!-- Home screen buttons -->
           <button class = "interactableButton" id = "emailButton" ngbTooltip="Open the email app" (click)="goToEmail()"></button>
           <button class = "interactableButton" id = "voicemailButton" ngbTooltip="Open the phone app" (click)="goToVoicemail()"></button>
