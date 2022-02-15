@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActiveCBDService } from 'src/app/services/active-cbd.service';
 
 @Component({
   selector: 'app-disability-menu',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisabilityMenuComponent implements OnInit {
   
-  constructor() { }
+  constructor(private activeCBDService: ActiveCBDService) { }
 
   ngOnInit(): void {
     // Loop the Tinnitus audio
@@ -109,11 +110,35 @@ export class DisabilityMenuComponent implements OnInit {
 
    // When one of the Tinnitus buttons is clicked: 
    toggleColourBlindness(selectedCBD: string){
-      if (selectedCBD == "protanomaly"){
+     // Depending on which CBD button was clicked, set the CDB variables in session storage to the unique CBD type
+     // Then send a signal to the active CBD service 
+      if (selectedCBD == "normalVision"){
+        sessionStorage.setItem("CBD", "normalVision")
+        this.activeCBDService.sendActiveCBD();
+      }
+      else if (selectedCBD == "protanomaly"){
         sessionStorage.setItem("CBD", "protanomaly")
+        this.activeCBDService.sendActiveCBD();
       }
       else if(selectedCBD == "protanopia"){
         sessionStorage.setItem("CBD", "protanopia")
+        this.activeCBDService.sendActiveCBD();
+      }
+      else if(selectedCBD == "deuteranomaly"){
+        sessionStorage.setItem("CBD", "deuteranomaly")
+        this.activeCBDService.sendActiveCBD();
+      }
+      else if(selectedCBD == "deuteranopia"){
+        sessionStorage.setItem("CBD", "deuteranopia")
+        this.activeCBDService.sendActiveCBD();
+      }
+      else if(selectedCBD == "tritanomaly"){
+        sessionStorage.setItem("CBD", "tritanomaly")
+        this.activeCBDService.sendActiveCBD();
+      }
+      else if(selectedCBD == "tritanopia"){
+        sessionStorage.setItem("CBD", "tritanopia")
+        this.activeCBDService.sendActiveCBD();
       }
    }
 

@@ -12,9 +12,8 @@
 
     <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
     <div id="officeSetup">
-        <img id="background" src="../../../assets/officeAssets/normalVision/Office Background.png" />
-        <!-- <img id="background" *ngIf = "!musicPlaying" src="../../../assets/officeAssets/normalVision/Office Background.png" /> -->
-        <!-- <img id="background" *ngIf = "musicPlaying" src="../../../assets/officeAssets/protanomaly/Office Background.png" /> -->
+        <img id="background" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/Office Background.png" />
+        <img id="background" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/Office Background.png" />
         <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
         <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
@@ -24,15 +23,6 @@
 
         <button *ngIf = "!officeEntered" id="enterRoomCover" (click)="toggleOffice()">Click Here To Enter The Office</button>
     </div>
-
-
-
-    <!-- Inside the officesetupcbd, put ngif statements so 'if cdb x is true then set display to show' -->
-    <!-- <div class="officeSetupCBD">
-        <img class="image1" src="https://via.placeholder.com/50" />
-        <img class="image2" src="https://via.placeholder.com/100" />
-    </div> -->
-
 
 
     <!-- Book Modal Content -->
