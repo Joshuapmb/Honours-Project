@@ -1,32 +1,116 @@
+<br>
 
-    <button type="button" id="test" class="tinnitusButton" (click)="toggleTinnitus('test')">Play Test</button>
+<!-- Tinnitus menu button -->
+<button type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="collapseExample"> 
+    Toggle Disabilities 
+</button>
 
-    <br>
-    <button type="button" id="tinnitus4KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('4KhzTWave')">Play Tinnitus: 4kHz Triangle Wave</button>
 
-    <br>
-    <button type="button" id="tinnitus5KhzIWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzIWave')">Play Tinnitus: 5kHz Impulse Wave</button>
+<!-- Dropdown for Tinnitus -->
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isMenuCollapsed">
+    <div class="card">
+        <div class="card-body">
+    
+            <!-- Buttons for Tinnitus -->
+            <h1>Tinnitus</h1>
+            <button type="button" id="test" class="tinnitusButton" (click)="toggleTinnitus('test')">
+                Test
+            </button>
 
-    <br>
-    <button type="button" id="tinnitus5KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzSWave')">Play Tinnitus: 5kHz Square Wave</button>
+            <br>
+            <button type="button" id="tinnitus4KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('4KhzTWave')">
+                4kHz Triangle Wave
+            </button>
 
-    <br>
-    <button type="button" id="tinnitus8KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('8KhzTWave')">Play Tinnitus: 8kHz Triangle Wave</button>
+            <br>
+            <button type="button" id="tinnitus5KhzIWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzIWave')">
+                5kHz Impulse Wave
+            </button>
 
-    <br>
-    <button type="button" id="tinnitus10KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('10KhzSinWave')">Play Tinnitus: 10kHz Sine Wave</button>
+            <br>
+            <button type="button" id="tinnitus5KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('5KhzSWave')">
+                5kHz Square Wave
+            </button>
 
-    <br>
-    <button type="button" id="tinnitus13KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('13KhzSWave')">Play Tinnitus: 13kHz Square Wave</button>
+            <br>
+            <button type="button" id="tinnitus8KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('8KhzTWave')">
+                8kHz Triangle Wave
+            </button>
 
-    <br>
-    <button type="button" id="tinnitus14KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('14KhzSinWave')">Play Tinnitus: 14kHz Sine Wave</button>
+            <br>
+            <button type="button" id="tinnitus10KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('10KhzSinWave')">
+                10kHz Sine Wave
+            </button>
 
-    <br>
-    <button type="button" id="tinnitus200hzIWave" class="tinnitusButton" (click)="toggleTinnitus('200hzIWave')">Play Tinnitus: 200Hz Impulse Wave</button>
+            <br>
+            <button type="button" id="tinnitus13KhzSWave" class="tinnitusButton" (click)="toggleTinnitus('13KhzSWave')">
+                13kHz Square Wave
+            </button>
 
-    <br>
-    <button type="button" id="tinnitusBrownNoise" class="tinnitusButton" (click)="toggleTinnitus('BrownNoise')">Play Tinnitus: Brown Noise</button>
+            <br>
+            <button type="button" id="tinnitus14KhzSinWave" class="tinnitusButton" (click)="toggleTinnitus('14KhzSinWave')">
+                14kHz Sine Wave
+            </button>
 
-    <br>
-    <button type="button" id="tinnitusVioletNoise" class="tinnitusButton" (click)="toggleTinnitus('VioletNoise')">Play Tinnitus: Violet Noise</button>
+            <br>
+            <button type="button" id="tinnitus200hzIWave" class="tinnitusButton" (click)="toggleTinnitus('200hzIWave')">
+                200Hz Impulse Wave
+            </button>
+
+            <br>
+            <button type="button" id="tinnitusBrownNoise" class="tinnitusButton" (click)="toggleTinnitus('BrownNoise')">
+                Brown Noise
+            </button>
+
+            <br>
+            <button type="button" id="tinnitusVioletNoise" class="tinnitusButton" (click)="toggleTinnitus('VioletNoise')">
+                Violet Noise
+            </button>
+
+            
+            <!-- Buttons for colour blindness -->
+            <br>
+            <h1>Colour Blindness</h1>
+
+            <button type="button" id="CBDnormal" class="ColourBlindnessButton" (click)="toggleColourBlindness('normalVision')">
+                Normal Vision
+            </button>
+
+            <br>
+            <button type="button" id="CBDprotanomaly" class="ColourBlindnessButton" (click)="toggleColourBlindness('protanomaly')">
+                Protanomaly
+            </button>
+
+            <br>
+            <button type="button" id="CBDprotanopia" class="ColourBlindnessButton" (click)="toggleColourBlindness('protanopia')">
+                Protanopia
+            </button>
+
+            <br>
+            <button type="button" id="CBDdeuteranomaly" class="ColourBlindnessButton" (click)="toggleColourBlindness('deuteranomaly')">
+                Deuteranomaly
+            </button>
+            
+            <br>
+            <button type="button" id="CBDdeuteranopia" class="ColourBlindnessButton" (click)="toggleColourBlindness('deuteranopia')">
+                Deuteranopia
+            </button>
+
+            <br>
+            <button type="button" id="CBDtritanomaly" class="ColourBlindnessButton" (click)="toggleColourBlindness('tritanomaly')">
+                Tritanomaly
+            </button>
+
+            <br>
+            <button type="button" id="CBDtritanopia" class="ColourBlindnessButton" (click)="toggleColourBlindness('tritanopia')">
+                Tritanopia
+            </button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<br>
+<br>

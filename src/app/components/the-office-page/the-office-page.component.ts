@@ -1,6 +1,8 @@
 import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
 import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import {NgbModal, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ActiveCBDService } from 'src/app/services/active-cbd.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-the-office-page',
@@ -10,8 +12,18 @@ import {NgbModal, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 })
 export class TheOfficePageComponent implements OnInit {
 
-  constructor(private modalService: NgbModal, config: NgbCarouselConfig) {
+  // Create subscription object 
+  cbdSelectionSubscription:Subscription;
+
+  constructor(private modalService: NgbModal, config: NgbCarouselConfig, private activeCBDService:ActiveCBDService) {
+
+    // Book carousel - do not show bars at bottom
     config.showNavigationIndicators = false;
+
+    // Subscribe the office to activeCBD service
+    this.cbdSelectionSubscription = this.activeCBDService.getActiveCBD().subscribe(()=>{
+      this.setCBDImages();
+    })
    }
 
   // Create an audio object for office background music
@@ -54,12 +66,21 @@ export class TheOfficePageComponent implements OnInit {
 
       this.voicemailSound.src = "../../../assets/officeAssets/audio/voicemail.wav"
       this.voicemailSound.load();
+
+      // Set the correct images based off of session variables
+      this.setCBDImages()
   }
 
 
   // Open modals when clicking on different items in the office
   openBackDropCustomClass(content: any) {
     this.modalService.open(content);
+
+    // There was an issue after I changed the phone backgrounds from a .src (in this TS file) to *ngIf (in the HTML):
+    //  1. Open phone in office, navigate to phone/email app, close phone
+    //  2. Reopen phone, buttons are shown for homescreen, but background for phone/email screen is displayed
+    // Running this method, resets background and buttons to home screen whenever the phone is opened
+    this.goToHome()
   }
 
 
@@ -121,13 +142,31 @@ export class TheOfficePageComponent implements OnInit {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
   // Phone code follows
+
+  homeScreenActive = true;
+  emailScreenActive = false;
+  voicemailScreenActive = false;
 
   // When user clicks the email app from the home screen
   goToEmail(){
     // Change screen to email
     this.phoneScreen = document.getElementById("phoneHomeScreen");
-    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneEmailScreen.png";
+    
+    this.homeScreenActive = false;
+    this.emailScreenActive = true;
+    this.voicemailScreenActive = false;
 
     // Remove email button
     this.emailButton = document.getElementById("emailButton");
@@ -158,7 +197,10 @@ export class TheOfficePageComponent implements OnInit {
   // When the user opens the voicemail app from the homescreen
   goToVoicemail(){
     this.phoneScreen = document.getElementById("phoneHomeScreen");
-    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png";
+
+    this.homeScreenActive = false;
+    this.emailScreenActive = false;
+    this.voicemailScreenActive = true;
 
     // Remove email button
     this.emailButton = document.getElementById("emailButton");
@@ -181,7 +223,10 @@ export class TheOfficePageComponent implements OnInit {
   // When the user closes the app by pressing the 'close(X)' button
   goToHome(){
     this.phoneScreen = document.getElementById("phoneHomeScreen");
-    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneHomeScreen.png";
+      
+    this.homeScreenActive = true;
+    this.emailScreenActive = false;
+    this.voicemailScreenActive = false;
 
     // Display email button
     this.emailButton = document.getElementById("emailButton");
@@ -226,6 +271,111 @@ export class TheOfficePageComponent implements OnInit {
     // Play sound effect to notify that email is sent
     this.emailSound.play();
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // CBD code follows
+
+  // Set all of the initial CBD booleans
+  normalVisionOn = true;
+  protanomalyOn = false;
+  protanopiaOn  = false;
+  deuteranomalyOn = false;
+  deuteranopiaOn = false;
+  tritanomalyOn = false;
+  tritanopiaOn = false;
+
+  // When change occurs in the activeCBD service (e.g. a CBD is selected in the disabilities menu), this is triggered.
+  setCBDImages() {
+    // Depending on which button was pressed change the variables for which CBD was selected, this will change the images displayed
+     if (sessionStorage.getItem("CBD") === "protanomaly"){
+      this.normalVisionOn = false;
+      this.protanomalyOn = true;
+      this.protanopiaOn  = false;
+      this.deuteranomalyOn = false;
+      this.deuteranopiaOn = false;
+      this.tritanomalyOn = false;
+      this.tritanopiaOn = false;
+    }
+
+    else if (sessionStorage.getItem("CBD") === "protanopia"){
+      this.normalVisionOn = false;
+      this.protanomalyOn = false;
+      this.protanopiaOn  = true;
+      this.deuteranomalyOn = false;
+      this.deuteranopiaOn = false;
+      this.tritanomalyOn = false;
+      this.tritanopiaOn = false;
+    }
+
+    else if (sessionStorage.getItem("CBD") === "deuteranomaly"){
+      this.normalVisionOn = false;
+      this.protanomalyOn = false;
+      this.protanopiaOn  = false;
+      this.deuteranomalyOn = true;
+      this.deuteranopiaOn = false;
+      this.tritanomalyOn = false;
+      this.tritanopiaOn = false;
+    }
+
+    else if (sessionStorage.getItem("CBD") === "deuteranopia"){
+      this.normalVisionOn = false;
+      this.protanomalyOn = false;
+      this.protanopiaOn  = false;
+      this.deuteranomalyOn = false;
+      this.deuteranopiaOn = true;
+      this.tritanomalyOn = false;
+      this.tritanopiaOn = false;
+    }
+
+    else if (sessionStorage.getItem("CBD") === "tritanomaly"){
+      this.normalVisionOn = false;
+      this.protanomalyOn = false;
+      this.protanopiaOn  = false;
+      this.deuteranomalyOn = false;
+      this.deuteranopiaOn = false;
+      this.tritanomalyOn = true;
+      this.tritanopiaOn = false;
+    }
+
+    else if (sessionStorage.getItem("CBD") === "tritanopia"){
+      this.normalVisionOn = false;
+      this.protanomalyOn = false;
+      this.protanopiaOn  = false;
+      this.deuteranomalyOn = false;
+      this.deuteranopiaOn = false;
+      this.tritanomalyOn = false;
+      this.tritanopiaOn = true;
+    }
+
+    // If session varable CBD is not set or something else, set to normal vision
+    else {
+      this.normalVisionOn = true;
+      this.protanomalyOn = false;
+      this.protanopiaOn  = false;
+      this.deuteranomalyOn = false;
+      this.deuteranopiaOn = false;
+      this.tritanomalyOn = false;
+      this.tritanopiaOn = false;
+    }
+  }
+
+  
 
 
 }
