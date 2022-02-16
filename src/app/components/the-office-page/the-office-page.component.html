@@ -115,13 +115,36 @@
           </button>
         </div>
         <div class="modal-body">
-          <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen" />
-          <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
-          <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
-          <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
-          <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneHomeScreen.png" alt="Phone Home Screen" />
-          <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
-          <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+
+          <div *ngIf = "homeScreenActive" >
+            <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen" />
+            <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+            <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+            <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+            <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+            <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+            <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+          </div>
+
+          <div *ngIf = "emailScreenActive" >
+            <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneEmailScreen.png" alt="Phone Email Screen" />
+            <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
+            <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneEmailScreen.png" alt="Phone Email Screen" />
+            <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
+            <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneEmailScreen.png" alt="Phone Email Screen" />
+            <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
+            <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneEmailScreen.png" alt="Phone Email Screen" />
+          </div>
+
+          <div *ngIf = "voicemailScreenActive" >
+            <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+            <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+            <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+            <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+            <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+            <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+            <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+          </div>
 
           <!-- Home screen buttons -->
           <button class = "interactableButton" id = "emailButton" ngbTooltip="Open the email app" (click)="goToEmail()"></button>

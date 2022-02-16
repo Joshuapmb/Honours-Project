@@ -17,7 +17,7 @@ export class TheOfficePageComponent implements OnInit {
 
   constructor(private modalService: NgbModal, config: NgbCarouselConfig, private activeCBDService:ActiveCBDService) {
 
-    // Book modal - do not show bars at bottom
+    // Book carousel - do not show bars at bottom
     config.showNavigationIndicators = false;
 
     // Subscribe the office to activeCBD service
@@ -75,6 +75,12 @@ export class TheOfficePageComponent implements OnInit {
   // Open modals when clicking on different items in the office
   openBackDropCustomClass(content: any) {
     this.modalService.open(content);
+
+    // There was an issue after I changed the phone backgrounds from a .src (in this TS file) to *ngIf (in the HTML):
+    //  1. Open phone in office, navigate to phone/email app, close phone
+    //  2. Reopen phone, buttons are shown for homescreen, but background for phone/email screen is displayed
+    // Running this method, resets background and buttons to home screen whenever the phone is opened
+    this.goToHome()
   }
 
 
@@ -149,11 +155,18 @@ export class TheOfficePageComponent implements OnInit {
 
   // Phone code follows
 
+  homeScreenActive = true;
+  emailScreenActive = false;
+  voicemailScreenActive = false;
+
   // When user clicks the email app from the home screen
   goToEmail(){
     // Change screen to email
     this.phoneScreen = document.getElementById("phoneHomeScreen");
-    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneEmailScreen.png";
+    
+    this.homeScreenActive = false;
+    this.emailScreenActive = true;
+    this.voicemailScreenActive = false;
 
     // Remove email button
     this.emailButton = document.getElementById("emailButton");
@@ -184,7 +197,10 @@ export class TheOfficePageComponent implements OnInit {
   // When the user opens the voicemail app from the homescreen
   goToVoicemail(){
     this.phoneScreen = document.getElementById("phoneHomeScreen");
-    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png";
+
+    this.homeScreenActive = false;
+    this.emailScreenActive = false;
+    this.voicemailScreenActive = true;
 
     // Remove email button
     this.emailButton = document.getElementById("emailButton");
@@ -207,7 +223,10 @@ export class TheOfficePageComponent implements OnInit {
   // When the user closes the app by pressing the 'close(X)' button
   goToHome(){
     this.phoneScreen = document.getElementById("phoneHomeScreen");
-    this.phoneScreen.src = "../../../assets/officeAssets/normalVision/phoneHomeScreen.png";
+      
+    this.homeScreenActive = true;
+    this.emailScreenActive = false;
+    this.voicemailScreenActive = false;
 
     // Display email button
     this.emailButton = document.getElementById("emailButton");
