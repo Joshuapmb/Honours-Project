@@ -27,6 +27,35 @@
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
 
+        
+
+        <div ngbDropdown class="d-inline-block">
+          <button class = "dropdownButton" id="dropdownForm1" ngbDropdownToggle>Things to email to Josh</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+            <form class="px-4 py-3">
+              
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck1">
+                <label class="form-check-label" for="dropdownCheck1">
+                  My favourite song from Athesa FM
+                </label>
+                <br>
+                <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                <label class="form-check-label" for="dropdownCheck2">
+                  My high score on the Inverted Space game
+                </label>
+                <br>
+                <input type="checkbox" class="form-check-input" id="dropdownCheck3">
+                <label class="form-check-label" for="dropdownCheck3">
+                  Number of people projected to have some degree of hearing loss by 2050
+                </label>
+                <br>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
         <button *ngIf = "!officeEntered" id="enterRoomCover" (click)="toggleOffice()">Click Here To Enter The Office</button>
     </div>
 
