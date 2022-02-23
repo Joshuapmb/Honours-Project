@@ -35,12 +35,18 @@ export class TheOfficePageComponent implements OnInit {
   // Create an audio object for listening to the voicemail
   voicemailSound = new Audio(); 
 
+  // Create an audio object for listening to the voicemail
+  ringtoneSound = new Audio(); 
+
   // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
   // Can be toggled true/false when the speakers are toggled within the office
   musicPlaying = false;
 
   // Determines whtehr the office has been entered and which covers to display
   officeEntered = false;
+
+  // Determines whether ringtone is playing or not. Initially false, turns true when office is entered, turns false when phone is used
+  ringtonePlaying = false;
 
   phoneScreen:any
   emailButton:any
@@ -66,6 +72,10 @@ export class TheOfficePageComponent implements OnInit {
 
       this.voicemailSound.src = "../../../assets/officeAssets/audio/voicemail.wav"
       this.voicemailSound.load();
+
+      this.ringtoneSound.src = "../../../assets/officeAssets/audio/ringtone.wav"
+      this.ringtoneSound.loop = true;
+      this.ringtoneSound.load();
 
       // Set the correct images based off of session variables
       this.setCBDImages()
@@ -133,8 +143,14 @@ export class TheOfficePageComponent implements OnInit {
     // Switches the covers over office/navbar and starts/resumes music
     else if(!this.officeEntered){
       this.officeEntered = true
-      this.officeBackgroundMusic.play();
-      this.musicPlaying = true;
+
+      // Uncomment the below 2 lines if you want the background music to play as soon as you enter the office. This was disabled so that 
+      // the ringtone could be heard as soon as you entered, without a sensory overload from music + ringtone
+      // this.officeBackgroundMusic.play();
+      // this.musicPlaying = true;
+
+      this.ringtoneSound.play();
+      this.ringtonePlaying = true
     }
   }
 
@@ -197,6 +213,13 @@ export class TheOfficePageComponent implements OnInit {
   // When the user opens the voicemail app from the homescreen
   goToVoicemail(){
     this.phoneScreen = document.getElementById("phoneHomeScreen");
+
+    // If the user hasn't entered the phone app before, then the ringtone will be playing. So when they click on the phone app to 
+    // interact with it, stop playing the ringtone
+    if(this.ringtonePlaying){
+      this.ringtoneSound.pause();
+      this.ringtonePlaying = false
+    }
 
     this.homeScreenActive = false;
     this.emailScreenActive = false;
