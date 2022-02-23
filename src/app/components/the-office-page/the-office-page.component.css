@@ -26,7 +26,7 @@ body{
 /* All interabtables will have this outline */
 .interactableButton{
   position: absolute;
-  outline: yellow;
+  outline: rgb(255, 255, 0);
   outline-style: dotted;
   background-color: rgba(232, 232, 232, 0.25);
   border-color: transparent;
@@ -44,7 +44,47 @@ body{
   height: 10.5%;
   width: 5%;
   max-width: 5%;
+
+  /* Animate the button */
+  /* animation: pulse 2s infinite; */
 }
+
+#phoneRing{
+  height: 100%;
+  width: 100%;
+  animation: pulse 2s infinite;
+}
+
+
+/* Animation for phone ringing css */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(255, 255, 0, 0.4);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8);
+    box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(255, 255, 0, 0.4);
+      box-shadow: 0 0 0 10px rgba(255, 255, 0, 0.4);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+      box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+  }
+}
+
+
 
 /* Placement and size of speaker interactable */
 #speaker1{

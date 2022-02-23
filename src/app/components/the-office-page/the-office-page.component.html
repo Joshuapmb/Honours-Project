@@ -20,7 +20,7 @@
         <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/Office Background.png" alt="Office Background" />
         <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/Office Background.png" alt="Office Background" />
     
-        <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"></button>
+        <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"><div id = "phoneRing" *ngIf = "ringtonePlaying"></div></button>
         <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <a href="https://pixelzenstudios.itch.io/inverted-space" target="_blank"><button class = "interactableButton" id = "screen1" ngbTooltip="Play a game"></button></a>

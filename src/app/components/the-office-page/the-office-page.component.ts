@@ -133,11 +133,14 @@ export class TheOfficePageComponent implements OnInit {
   // Called when you enter and leave the office via the buttons
   toggleOffice() {
     // If you have been in the office, this is called as you leave
-    // Switches the covers over office/navbar and pauses music
+    // Switches the covers over office/navbar and pauses music/ringtone
     if(this.officeEntered){
       this.officeEntered = false
       this.officeBackgroundMusic.pause();
       this.musicPlaying = false;
+
+      this.ringtoneSound.pause();
+      this.ringtonePlaying = false
     }
     // If you are outside the office this is called as you enter
     // Switches the covers over office/navbar and starts/resumes music
