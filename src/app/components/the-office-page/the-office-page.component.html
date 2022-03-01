@@ -1,17 +1,18 @@
 <!-- Navbar -->
 <app-navbar></app-navbar>
 
-<!-- Navbar cover -->
+<!-- Navbar cover: displayed when user enters the office -->
 <button *ngIf = "officeEntered" id="navbarCover" (click)="toggleOffice()">Click Here To Leave The Office</button>
-
 
 
 <body>
 
   <br>  
 
-    <!-- Inside the officesetup, put ngif statements so 'if cdb is off then set display to show instead of hidden/none' -->
+    <!-- The whole office section: this contains interactable objects and the background -->
     <div id="officeSetup">
+
+        <!-- This is the background of the office, the specific image is displayed based on which colour blind option is active -->
         <img id="background" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/Office Background.png" alt="Office Background" />
         <img id="background" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/Office Background.png" alt="Office Background" />
         <img id="background" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/Office Background.png" alt="Office Background" />
@@ -20,6 +21,7 @@
         <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/Office Background.png" alt="Office Background" />
         <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/Office Background.png" alt="Office Background" />
     
+        <!-- The buttons for each interactable are displayed on top of the environment background -->
         <button class = "interactableButton" id = "phone" ngbTooltip="Pickup the phone" (click)="openBackDropCustomClass(phoneModal)"><div id = "phoneRing" *ngIf = "ringtonePlaying"></div></button>
         <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
@@ -27,12 +29,11 @@
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
         
-
+        <!-- The dropdown "to do" list which displays what tasks the user needs to complete -->
         <div ngbDropdown class="d-inline-block">
           <button class = "dropdownButton" id="dropdownForm1" ngbDropdownToggle>Things to email to Josh</button>
           <div ngbDropdownMenu aria-labelledby="dropdownForm1">
             <form class="px-4 py-3">
-              
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="dropdownCheck1">
                 <label class="form-check-label" for="dropdownCheck1">
@@ -54,140 +55,189 @@
           </div>
         </div>
 
-
+        <!-- On top of all of this is the office cover: displayed when user leaves the office / has not entered  -->
         <button *ngIf = "!officeEntered" id="enterRoomCover" (click)="toggleOffice()">Click Here To Enter The Office</button>
     </div>
 
 
-    <!-- Book Modal Content -->
+
+
+
+
+
+
+
+
+    <!-- Book Modal Content: this is displayed when the user clicks on the book interactable -->
     <ng-template #bookModal let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title">Interesting Facts About Disabilities</h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-          </button>
+
+      <!-- Modal header/title -->
+      <div class="modal-header">
+        <h4 class="modal-title">Interesting Facts About Disabilities</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+			<!-- The modal body is a carousel in which the user can press the arrows to turn the page -->
+			<div class="modal-body">
+				<div class="carouselCont">
+					<ngb-carousel>
+
+							<!-- Page 1 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook.png" alt="A Book" />
+								</div>
+							</ng-template>
+
+							<!-- Page 2 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook2.png" alt="A Book" />
+								</div>
+							</ng-template>
+
+							<!-- Page 3 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook3.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook3.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook3.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook3.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook3.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook3.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook3.png" alt="A Book" />
+								</div>
+							</ng-template>
+
+					</ngb-carousel>
         </div>
-
-        <div class="modal-body">
-            <div class="carouselCont">
-                <ngb-carousel *ngIf="images">
-                  <ng-template ngbSlide>
-                    <div class="picsum-img-wrapper">
-                        <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook.png" alt="A Book" />
-                        <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook.png" alt="A Book" />
-                        <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook.png" alt="A Book" />
-                        <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook.png" alt="A Book" />
-                        <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook.png" alt="A Book" />
-                        <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook.png" alt="A Book" />
-                        <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook.png" alt="A Book" />
-                    </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <div class="picsum-img-wrapper">
-                      <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook2.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook2.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook2.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook2.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook2.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook2.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook2.png" alt="A Book" />
-                    </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <div class="picsum-img-wrapper">
-                      <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook3.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook3.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook3.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook3.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook3.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook3.png" alt="A Book" />
-                      <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook3.png" alt="A Book" />
-                    </div>
-                  </ng-template>
-                </ngb-carousel>
-              </div>
-        </div>
-      </ng-template>
+      </div>
+    </ng-template>
 
 
-      <!-- Screen2 Modal Content -->
+
+
+
+
+
+
+
+
+    <!-- Screen2 (the song changer) Modal Content -->
     <ng-template #musicModal let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title">Time To Change My Music</h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-          </button>
+      
+      <!-- Modal header/title -->
+      <div class="modal-header">
+        <h4 class="modal-title">Time To Change My Music</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal body displays a background image (depending on CBD) and buttons over the top which allow the song to be changed-->
+      <div class="modal-body" id = "songSelect">
+        <img id="songSelectBackground" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/screen2.png" alt="Music selection" />
+
+        <button class = "interactableButton" id = "enigmaticSong" ngbTooltip="Change the song to something generic" (click)="changeSong('enigmatic')"></button>
+        <button class = "interactableButton" id = "jazzyFrenchSong" ngbTooltip="Change the song to something jazzy" (click)="changeSong('jazzyFrench')"></button>
+        <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
+      </div>
+    </ng-template>
+
+
+
+
+
+
+
+
+
+
+    <!-- Phone Modal Content -->
+    <ng-template #phoneModal let-modal>
+      
+      <!-- Modal header/title -->
+      <div class="modal-header">
+        <h4 class="modal-title">I should click the phone app</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal body displays 3 different screens: home, email, and voicemail -->
+      <div class="modal-body">
+
+        <!-- If the correct boolean is true (set by the phone's interactable buttons) then display the home screen which is also based on the selected CBD -->
+        <div *ngIf = "homeScreenActive" >
+          <img class="phoneScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img class="phoneScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img class="phoneScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img class="phoneScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img class="phoneScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img class="phoneScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
+          <img class="phoneScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
         </div>
-        <div class="modal-body" id = "songSelect">
-          <img id="songSelectBackground" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection" />
-          <img id="songSelectBackground" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/screen2.png" alt="Music selection" />
-          <img id="songSelectBackground" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/screen2.png" alt="Music selection" />
-          <img id="songSelectBackground" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/screen2.png" alt="Music selection" />
-          <img id="songSelectBackground" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/screen2.png" alt="Music selection" />
-          <img id="songSelectBackground" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/screen2.png" alt="Music selection" />
-          <img id="songSelectBackground" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/screen2.png" alt="Music selection" />
 
-          <button class = "interactableButton" id = "enigmaticSong" ngbTooltip="Change the song to something generic" (click)="changeSong('enigmatic')"></button>
-          <button class = "interactableButton" id = "jazzyFrenchSong" ngbTooltip="Change the song to something jazzy" (click)="changeSong('jazzyFrench')"></button>
-          <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
+        <!-- If the correct boolean is true (set by the phone's interactable buttons) then display the email screen which is also based on the selected CBD -->
+        <div *ngIf = "emailScreenActive" >
+          <img class="phoneScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneEmailScreen.png" alt="Phone Email Screen" />
+          <img class="phoneScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
+          <img class="phoneScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneEmailScreen.png" alt="Phone Email Screen" />
+          <img class="phoneScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
+          <img class="phoneScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneEmailScreen.png" alt="Phone Email Screen" />
+          <img class="phoneScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
+          <img class="phoneScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneEmailScreen.png" alt="Phone Email Screen" />
         </div>
-      </ng-template>
 
-
-      <!-- Phone Modal Content -->
-      <ng-template #phoneModal let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title">I should click the phone app</h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <!-- If the correct boolean is true (set by the phone's interactable buttons) then display the voicemail screen which is also based on the selected CBD -->
+        <div *ngIf = "voicemailScreenActive" >
+          <img class="phoneScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+          <img class="phoneScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+          <img class="phoneScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+          <img class="phoneScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+          <img class="phoneScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+          <img class="phoneScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
+          <img class="phoneScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
         </div>
-        <div class="modal-body">
 
-          <div *ngIf = "homeScreenActive" >
-            <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneHomeScreen.png" alt="Phone Home Screen" />
-            <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
-            <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
-            <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
-            <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneHomeScreen.png" alt="Phone Home Screen" />
-            <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneHomeScreen.png" alt="Phone Home Screen" />
-            <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneHomeScreen.png" alt="Phone Home Screen" />
-          </div>
+        <!-- Home screen buttons -->
+        <button class = "interactableButton" id = "emailButton" ngbTooltip="Open the email app" (click)="goToEmail()"></button>
+        <button class = "interactableButton" id = "voicemailButton" ngbTooltip="Open the phone app" (click)="goToVoicemail()"></button>
 
-          <div *ngIf = "emailScreenActive" >
-            <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneEmailScreen.png" alt="Phone Email Screen" />
-            <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
-            <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneEmailScreen.png" alt="Phone Email Screen" />
-            <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
-            <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneEmailScreen.png" alt="Phone Email Screen" />
-            <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneEmailScreen.png" alt="Phone Email Screen" />
-            <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneEmailScreen.png" alt="Phone Email Screen" />
-          </div>
+        <!-- Email/Voicemail screen button that send user back to home screen -->
+        <button class = "interactableButton" id = "homeButton" ngbTooltip="Go back to home screen" (click)="goToHome()"></button>
 
-          <div *ngIf = "voicemailScreenActive" >
-            <img id="phoneHomeScreen" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
-            <img id="phoneHomeScreen" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
-            <img id="phoneHomeScreen" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
-            <img id="phoneHomeScreen" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
-            <img id="phoneHomeScreen" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
-            <img id="phoneHomeScreen" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
-            <img id="phoneHomeScreen" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/phoneVoicemailScreen.png" alt="Phone Voicemail Screen" />
-          </div>
+        <!-- Email screen button that allows user to send email -->
+        <button class = "interactableButton" id = "sendEmailButton" ngbTooltip="Send email" (click)="sendEmail()"></button>
 
-          <!-- Home screen buttons -->
-          <button class = "interactableButton" id = "emailButton" ngbTooltip="Open the email app" (click)="goToEmail()"></button>
-          <button class = "interactableButton" id = "voicemailButton" ngbTooltip="Open the phone app" (click)="goToVoicemail()"></button>
-          <!-- Email/Voicemail screen buttons/text areas -->
-          <button class = "interactableButton" id = "homeButton" ngbTooltip="Go back to home screen" (click)="goToHome()"></button>
-          <button class = "interactableButton" id = "sendEmailButton" ngbTooltip="Send email" (click)="sendEmail()"></button>
-          <button class = "interactableButton" id = "playMessageButton" ngbTooltip="Play voice messages" (click)="playMessage()"></button>
-          <textarea readonly class = "emailTextarea" id = "emailRecipientTextarea" ngbTooltip="This is Josh's email address">To: josh@ATHESA.com</textarea>
-          <textarea  class = "emailTextarea" id = "emailMessageTextarea" ngbTooltip="I should write my answers here before sending the email"></textarea>
-        </div>
-      </ng-template>
+        <!-- Voicemail screen button that plays the voicemail -->
+        <button class = "interactableButton" id = "playMessageButton" ngbTooltip="Play voice messages" (click)="playMessage()"></button>
 
-
-
+        <!-- Email screen text areas -->
+        <textarea readonly class = "emailTextarea" id = "emailRecipientTextarea" ngbTooltip="This is Josh's email address">To: josh@ATHESA.com</textarea>
+        <textarea  class = "emailTextarea" id = "emailMessageTextarea" ngbTooltip="I should write my answers here before sending the email"></textarea>
+      </div>
+    </ng-template>
 
 
 </body>

@@ -57,7 +57,6 @@ export class TheOfficePageComponent implements OnInit {
   emailRecipientTextarea:any
   emailMessageTextarea:any
 
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
   
   // When the page loads, load some default music which can be changed by the user
