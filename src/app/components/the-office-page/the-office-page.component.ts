@@ -1,4 +1,3 @@
-import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
 import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import {NgbModal, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { ActiveCBDService } from 'src/app/services/active-cbd.service';
@@ -20,7 +19,7 @@ export class TheOfficePageComponent implements OnInit {
     // Book carousel - do not show bars at bottom
     config.showNavigationIndicators = false;
 
-    // Subscribe the office to activeCBD service
+    // Subscribe the office to activeCBD service. When the user clicks one of the CBDs in the disability menu, this subscriber will know
     this.cbdSelectionSubscription = this.activeCBDService.getActiveCBD().subscribe(()=>{
       this.setCBDImages();
     })
@@ -48,6 +47,7 @@ export class TheOfficePageComponent implements OnInit {
   // Determines whether ringtone is playing or not. Initially false, turns true when office is entered, turns false when phone is used
   ringtonePlaying = false;
 
+  // Variables to refer to html components
   phoneScreen:any
   emailButton:any
   voicemailButton:any
@@ -56,10 +56,19 @@ export class TheOfficePageComponent implements OnInit {
   sendEmailButton:any
   emailRecipientTextarea:any
   emailMessageTextarea:any
-
-
   
-  // When the page loads, load some default music which can be changed by the user
+
+
+
+
+
+
+
+
+
+  // When the page loads: 
+  // 1. Load some default music which can be changed by the user
+  // 2. Load other sounds 
   ngOnInit(): void {
       this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
       this.officeBackgroundMusic.loop = true;
@@ -91,6 +100,14 @@ export class TheOfficePageComponent implements OnInit {
     // Running this method, resets background and buttons to home screen whenever the phone is opened
     this.goToHome()
   }
+  
+
+
+
+
+
+
+
 
 
   // When the speakers are clicked, turn the music on or off
@@ -128,7 +145,14 @@ export class TheOfficePageComponent implements OnInit {
   }
 
 
- 
+
+
+
+
+
+
+
+
   // Called when you enter and leave the office via the buttons
   toggleOffice() {
     // If you have been in the office, this is called as you leave
@@ -155,12 +179,6 @@ export class TheOfficePageComponent implements OnInit {
       this.ringtonePlaying = true
     }
   }
-
-
-
-
-
-
 
 
 
@@ -209,8 +227,8 @@ export class TheOfficePageComponent implements OnInit {
     // Display email message text area 
     this.emailMessageTextarea = document.getElementById("emailMessageTextarea");
     this.emailMessageTextarea.style.display = "block";
-    
   }
+
 
   // When the user opens the voicemail app from the homescreen
   goToVoicemail(){
@@ -242,8 +260,8 @@ export class TheOfficePageComponent implements OnInit {
     // Display play message button
     this.playMessageButton = document.getElementById("playMessageButton");
     this.playMessageButton.style.display = "block";
-
   }
+
 
   // When the user closes the app by pressing the 'close(X)' button
   goToHome(){
@@ -282,10 +300,12 @@ export class TheOfficePageComponent implements OnInit {
     this.emailMessageTextarea.style.display = "none";
   }
 
+
   // Plays voicemail when the user clicks '1' in the voicemail app
   playMessage(){
     this.voicemailSound.play()
   }
+
 
   // When the user presses 'send' on the email app, this happens:
   sendEmail(){
@@ -296,14 +316,6 @@ export class TheOfficePageComponent implements OnInit {
     // Play sound effect to notify that email is sent
     this.emailSound.play();
   }
-
-
-
-
-
-
-
-
 
 
 
@@ -401,6 +413,4 @@ export class TheOfficePageComponent implements OnInit {
   }
 
   
-
-
 }
