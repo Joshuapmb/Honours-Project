@@ -27,14 +27,8 @@ export class TheLivingRoomPageComponent implements OnInit {
  // Create an audio object for office background music
  officeBackgroundMusic = new Audio(); 
 
- // Create an audio object for sending an email
- emailSound = new Audio();
-
- // Create an audio object for listening to the voicemail
- voicemailSound = new Audio(); 
-
- // Create an audio object for listening to the voicemail
- ringtoneSound = new Audio(); 
+ // Create an audio object for stroking the cat
+ catPurring = new Audio();
 
  // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
  // Can be toggled true/false when the speakers are toggled within the office
@@ -57,6 +51,9 @@ export class TheLivingRoomPageComponent implements OnInit {
      this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
      this.officeBackgroundMusic.loop = true;
      this.officeBackgroundMusic.load();
+
+     this.catPurring.src = "../../../assets/livingRoomAssets/audio/catPurring.wav"
+     this.catPurring.load();
 
      // Set the correct images based off of session variables
      this.setCBDImages()
@@ -135,7 +132,18 @@ export class TheLivingRoomPageComponent implements OnInit {
      this.officeEntered = true
    }
  }
+ 
 
+
+
+
+
+
+
+// When use clicks on the cat to pet it, this triggers
+ petCat(){
+  this.catPurring.play();
+ }
 
 
 

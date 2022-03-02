@@ -27,7 +27,7 @@
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
         <iframe class = "interactableButton" id = "tv" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/BmxVnNZEFvg?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button class = "interactableButton" id = "cat" ngbTooltip="Pet Tom the cat" (click)="openBackDropCustomClass(cat)"></button>
+        <button class = "interactableButton" id = "cat" ngbTooltip="Pet Tom the cat" (click)="petCat()"></button>
         <button class = "interactableButton" id = "magazines" ngbTooltip="Flick through magazines" (click)="openBackDropCustomClass(magazines)"></button>
         
         <!-- The dropdown "to do" list which displays what tasks the user needs to complete -->
@@ -161,74 +161,7 @@
         <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
       </div>
     </ng-template>
-
-
-
-
-
-
-
-
-
-    <!-- Cat Modal Content: this is displayed when the user clicks on the cat interactable -->
-    <ng-template #cat let-modal>
-
-      <!-- Modal header/title -->
-      <div class="modal-header">
-        <h4 class="modal-title">Hello Tom</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <!-- The modal body is a carousel in which the user can press the arrows to turn the page -->
-      <div class="modal-body">
-        <div class="carouselCont">
-          <ngb-carousel>
-
-              <!-- Page 1 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook.png" alt="A Book" />
-                </div>
-              </ng-template>
-
-              <!-- Page 2 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook2.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook2.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook2.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook2.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook2.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook2.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook2.png" alt="A Book" />
-                </div>
-              </ng-template>
-
-              <!-- Page 3 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/InfoBook3.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/InfoBook3.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/InfoBook3.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/InfoBook3.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/InfoBook3.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/InfoBook3.png" alt="A Book" />
-                  <img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/InfoBook3.png" alt="A Book" />
-                </div>
-              </ng-template>
-
-          </ngb-carousel>
-        </div>
-      </div>
-    </ng-template>
+    
 
 
 
