@@ -1,3 +1,4 @@
+/* CSS that affects the whole body of the office */
 body{
     margin-left: 10% !important;
     margin-right: 10% !important;
@@ -5,7 +6,14 @@ body{
 
 
 
-/* Following is for main office setup CSS */
+
+
+
+
+
+
+
+/* Following is for main office interactables CSS */
 
 /* CSS for div containing all of the office */
 #officeSetup {
@@ -26,7 +34,7 @@ body{
 /* All interabtables will have this outline */
 .interactableButton{
   position: absolute;
-  outline: yellow;
+  outline: rgb(255, 255, 0);
   outline-style: dotted;
   background-color: rgba(232, 232, 232, 0.25);
   border-color: transparent;
@@ -45,6 +53,47 @@ body{
   width: 5%;
   max-width: 5%;
 }
+
+/* Placement and size of phone ring animation */
+#phoneRing{
+  height: 110%;
+  width: 120%;
+  animation: pulse 2s infinite;
+  position: absolute;
+  right: -10%;
+  top: -4.5%;
+}
+
+
+/* Animation for phone ringing css */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(255, 255, 0, 0.4);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+  }
+}
+
+/* Animation for phone ringing css */
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8);
+    box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.8);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(255, 255, 0, 0.4);
+      box-shadow: 0 0 0 10px rgba(255, 255, 0, 0.4);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+      box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+  }
+}
+
 
 /* Placement and size of speaker interactable */
 #speaker1{
@@ -91,13 +140,23 @@ body{
   max-width: 5.5%;
 }
 
+
+
+
+
+
+
+
+
+
+/* CSS for the "to do" list */
+
 /* Placement and size of to do list */
 .d-inline-block{
   position: absolute;
   right: 5%;
   top: 3%;
 }
-
 
 /* Styling of to do list button */
 .dropdownButton{
@@ -122,6 +181,13 @@ body{
 
 
 
+
+
+
+
+
+/* CSS for office/navbar covers */
+
 /* Placement and size of enter room cover */
 #enterRoomCover{
   right: 0%;
@@ -138,7 +204,6 @@ body{
   font-weight: 900;
   text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
 }
-
 
 /* Placement and size of enter room cover */
 #navbarCover{
@@ -167,8 +232,14 @@ body{
 
 
 
-/* Using an interactable / opening its modal CSS follows */
 
+
+
+
+
+
+
+/* Using an interactable / opening its modal CSS follows */
 .modal-body{
   padding: 0% 0% 0% 0%;
 }
@@ -176,6 +247,10 @@ body{
 #infoBookImage{
   max-width: 100%;
 }
+
+
+
+
 
 
 
@@ -198,6 +273,7 @@ body{
   height: auto;
 }
 
+/* Button cover/interactable for a song */
 #enigmaticSong{
   right: 1%;
   top: 67.5%;
@@ -206,6 +282,7 @@ body{
   max-width: 98%;
 }
 
+/* Button cover/interactable for a song */
 #jazzyFrenchSong{
   right: 1%;
   top: 78.5%;
@@ -214,6 +291,7 @@ body{
   max-width: 98%;
 }
 
+/* Button cover/interactable for a song */
 #happyRockSong{
   right: 1%;
   top: 90.5%;
@@ -225,9 +303,16 @@ body{
 
 
 
+
+
+
+
+
+
 /* Following is for the phone CSS */
 
-#phoneHomeScreen {
+/* CSS for all phone screens */
+.phoneScreen {
   position: relative;
   max-width: 70%;
   width: 70%;
@@ -238,6 +323,7 @@ body{
   margin-right: auto;
 }
 
+/* CSS for button that takes user from home to email screen */
 #emailButton{
   right: 66.3%;
   top: 11.5%;
@@ -246,6 +332,7 @@ body{
   max-width: 10%;
 }
 
+/* CSS for button that takes user from home to voicemail screen */
 #voicemailButton{
   right: 66.3%;
   top: 87%;
@@ -254,6 +341,7 @@ body{
   max-width: 10%;
 }
 
+/* CSS for button that takes user from email/voicemail to home screen */
 #homeButton{
   right: 23%;
   top: 8.5%;
@@ -264,6 +352,7 @@ body{
   border-radius: 45%;
 }
 
+/* CSS for button that plays the voicemail, present on voicemail screen */
 #playMessageButton{
   right: 60.5%;
   top: 46.5%;
@@ -274,6 +363,7 @@ body{
   border-radius: 45%;
 }
 
+/* CSS for button that sends the email, present on email screen of the phone */
 #sendEmailButton{
   right: 40%;
   top: 83%;
@@ -284,12 +374,14 @@ body{
   border-radius: 45%;
 }
 
+/* CSS for all textareas on  the email screen of the phone */
 .emailTextarea{
   resize: none;
   display: none;
   position: absolute;
 }
 
+/* CSS for textarea that contains the email recipient, present on email screen of the phone */
 #emailRecipientTextarea{
   right: 22%;
   top: 20%;
@@ -297,6 +389,7 @@ body{
   width: 56.5%;
 }
 
+/* CSS for textarea that contains the user's email, present on email screen of the phone */
 #emailMessageTextarea{
   right: 22%;
   top: 30%;
