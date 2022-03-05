@@ -26,7 +26,17 @@
         <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
-        <iframe class = "interactableButton" id = "tv" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/BmxVnNZEFvg?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+        <!-- These are for the TV interactable. Depending on what type of colour blindness is active, the relevantly filtered video about Tinnitus will play -->
+        <iframe class = "interactableButton" id = "tv" *ngIf = "normalVisionOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/BlSKwdieNmQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "protanomalyOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/lK-Jzu4dXxs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "protanopiaOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/rtC42sBmW1E?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "deuteranomalyOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/djIJCvo_4EQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "deuteranopiaOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/BcLdQlCkaog?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "tritanomalyOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/FzaBBSP1waY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "tritanopiaOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/nUkg8p-X4-o?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         <button class = "interactableButton" id = "cat" ngbTooltip="Pet Tom the cat" (click)="petCat()"></button>
         <button class = "interactableButton" id = "magazines" ngbTooltip="Flick through magazines" (click)="openBackDropCustomClass(magazines)"></button>
         

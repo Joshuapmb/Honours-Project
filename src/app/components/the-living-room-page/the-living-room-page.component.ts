@@ -167,15 +167,17 @@ export class TheLivingRoomPageComponent implements OnInit {
 
  // When change occurs in the activeCBD service (e.g. a CBD is selected in the disabilities menu), this is triggered.
  setCBDImages() {
+
+
    // Depending on which button was pressed change the variables for which CBD was selected, this will change the images displayed
     if (sessionStorage.getItem("CBD") === "protanomaly"){
-     this.normalVisionOn = false;
-     this.protanomalyOn = true;
-     this.protanopiaOn  = false;
-     this.deuteranomalyOn = false;
-     this.deuteranopiaOn = false;
-     this.tritanomalyOn = false;
-     this.tritanopiaOn = false;
+      this.normalVisionOn = false;
+      this.protanomalyOn = true;
+      this.protanopiaOn  = false;
+      this.deuteranomalyOn = false;
+      this.deuteranopiaOn = false;
+      this.tritanomalyOn = false;
+      this.tritanopiaOn = false;
    }
 
    else if (sessionStorage.getItem("CBD") === "protanopia"){
