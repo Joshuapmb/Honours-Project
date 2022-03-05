@@ -1,4 +1,246 @@
 <!-- Navbar -->
 <app-navbar></app-navbar>
 
-<p>the-living-room-page works!</p>
+<!-- Navbar cover: displayed when user enters the office -->
+<button *ngIf = "officeEntered" id="navbarCover" (click)="toggleOffice()">Click Here To Leave The Living Room</button>
+
+
+<body>
+
+  <br>  
+
+    <!-- The whole office section: this contains interactable objects and the background -->
+    <div id="livingRoomSetup">
+
+        <!-- This is the background of the office, the specific image is displayed based on which colour blind option is active -->
+        <img id="background" *ngIf = "normalVisionOn" src="../../../assets/livingRoomAssets/normalVision/livingRoomBackground.png" alt="Living Room Background" />
+        <img id="background" *ngIf = "protanomalyOn" src="../../../assets/livingRoomAssets/protanomaly/livingRoomBackground.png" alt="Living Room Background" />
+        <img id="background" *ngIf = "protanopiaOn" src="../../../assets/livingRoomAssets/protanopia/livingRoomBackground.png" alt="Living Room Background" />
+        <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/livingRoomAssets/deuteranomaly/livingRoomBackground.png" alt="Living Room Background" />
+        <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/livingRoomAssets/deuteranopia/livingRoomBackground.png" alt="Living Room Background" />
+        <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/livingRoomAssets/tritanomaly/livingRoomBackground.png" alt="Living Room Background" />
+        <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/livingRoomAssets/tritanopia/livingRoomBackground.png" alt="Living Room Background" />
+
+        <!-- The buttons for each interactable are displayed on top of the environment background -->
+        <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
+        <button class = "interactableButton" id = "speaker2" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
+        <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
+        <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
+
+
+        <!-- These are for the TV interactable. Depending on what type of colour blindness is active, the relevantly filtered video about Tinnitus will play -->
+        <iframe class = "interactableButton" id = "tv" *ngIf = "normalVisionOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/BlSKwdieNmQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "protanomalyOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/lK-Jzu4dXxs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "protanopiaOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/rtC42sBmW1E?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "deuteranomalyOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/djIJCvo_4EQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "deuteranopiaOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/BcLdQlCkaog?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "tritanomalyOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/FzaBBSP1waY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class = "interactableButton" id = "tv" *ngIf = "tritanopiaOn" gbTooltip="Watch some the ATHESA TV channel" src="https://www.youtube.com/embed/nUkg8p-X4-o?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <button class = "interactableButton" id = "cat" ngbTooltip="Pet Tom the cat" (click)="petCat()"></button>
+        <button class = "interactableButton" id = "magazines" ngbTooltip="Flick through magazines" (click)="openBackDropCustomClass(magazines)"></button>
+        
+        <!-- The dropdown "to do" list which displays what tasks the user needs to complete -->
+        <div ngbDropdown class="d-inline-block">
+          <button class = "dropdownButton" id="dropdownForm1" ngbDropdownToggle>Things I can do to relax</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+            <form class="px-4 py-3">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck1">
+                <label class="form-check-label" for="dropdownCheck1">
+                  Watch some ATHESA TV
+                </label>
+                <br>
+                <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                <label class="form-check-label" for="dropdownCheck2">
+                  Pet the cat
+                </label>
+                <br>
+                <input type="checkbox" class="form-check-input" id="dropdownCheck3">
+                <label class="form-check-label" for="dropdownCheck3">
+                  Listen to some music
+                </label>
+                <br>
+                <input type="checkbox" class="form-check-input" id="dropdownCheck4">
+                <label class="form-check-label" for="dropdownCheck4">
+                  Read a book
+                </label>
+                <br>
+                <input type="checkbox" class="form-check-input" id="dropdownCheck5">
+                <label class="form-check-label" for="dropdownCheck5">
+                  Flick through the magazines
+                </label>
+                <br>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- On top of all of this is the office cover: displayed when user leaves the office / has not entered  -->
+        <button *ngIf = "!officeEntered" id="enterRoomCover" (click)="toggleOffice()">Click Here To Enter The Living Room</button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Book Modal Content: this is displayed when the user clicks on the book interactable -->
+    <ng-template #bookModal let-modal>
+
+      <!-- Modal header/title -->
+      <div class="modal-header">
+        <h4 class="modal-title">A book about animal therapy</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+			<!-- The modal body is a carousel in which the user can press the arrows to turn the page -->
+			<div class="modal-body">
+				<div class="carouselCont">
+					<ngb-carousel>
+
+							<!-- Page 1 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/livingRoomAssets/normalVision/petTherapyBook1.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/livingRoomAssets/protanomaly/petTherapyBook1.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/livingRoomAssets/protanopia/petTherapyBook1.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/livingRoomAssets/deuteranomaly/petTherapyBook1.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/livingRoomAssets/deuteranopia/petTherapyBook1.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/livingRoomAssets/tritanomaly/petTherapyBook1.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/livingRoomAssets/tritanopia/petTherapyBook1.png" alt="A Book" />
+								</div>
+							</ng-template>
+
+							<!-- Page 2 of the book (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img id = "infoBookImage" *ngIf = "normalVisionOn" src="../../../assets/livingRoomAssets/normalVision/petTherapyBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanomalyOn" src="../../../assets/livingRoomAssets/protanomaly/petTherapyBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "protanopiaOn" src="../../../assets/livingRoomAssets/protanopia/petTherapyBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranomalyOn" src="../../../assets/livingRoomAssets/deuteranomaly/petTherapyBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "deuteranopiaOn" src="../../../assets/livingRoomAssets/deuteranopia/petTherapyBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanomalyOn" src="../../../assets/livingRoomAssets/tritanomaly/petTherapyBook2.png" alt="A Book" />
+									<img id="infoBookImage" *ngIf = "tritanopiaOn" src="../../../assets/livingRoomAssets/tritanopia/petTherapyBook2.png" alt="A Book" />
+								</div>
+							</ng-template>
+
+					</ngb-carousel>
+        </div>
+      </div>
+    </ng-template>
+
+
+
+
+
+
+
+
+
+
+    <!-- Screen2 (the song changer) Modal Content -->
+    <ng-template #musicModal let-modal>
+      
+      <!-- Modal header/title -->
+      <div class="modal-header">
+        <h4 class="modal-title">Time To Change My Music</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal body displays a background image (depending on CBD) and buttons over the top which allow the song to be changed-->
+      <div class="modal-body" id = "songSelect">
+        <img id="songSelectBackground" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/screen2.png" alt="Music selection" />
+
+        <button class = "interactableButton" id = "enigmaticSong" ngbTooltip="Change the song to something generic" (click)="changeSong('enigmatic')"></button>
+        <button class = "interactableButton" id = "jazzyFrenchSong" ngbTooltip="Change the song to something jazzy" (click)="changeSong('jazzyFrench')"></button>
+        <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
+      </div>
+    </ng-template>
+    
+
+
+
+
+
+
+
+
+
+    <!-- Magazine Modal Content: this is displayed when the user clicks on the Magazine interactable -->
+    <ng-template #magazines let-modal>
+
+      <!-- Modal header/title -->
+      <div class="modal-header">
+        <h4 class="modal-title">Wow so many colours!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+			<!-- The modal body is a carousel in which the user can press the arrows to turn the page -->
+			<div class="modal-body">
+				<div class="carouselCont">
+					<ngb-carousel>
+
+							<!-- Magazine 1 (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img class="magazineCover" *ngIf = "normalVisionOn" src="../../../assets/livingRoomAssets/normalVision/mag1.jpg" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "protanomalyOn" src="../../../assets/livingRoomAssets/protanomaly/mag1.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "protanopiaOn" src="../../../assets/livingRoomAssets/protanopia/mag1.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "deuteranomalyOn" src="../../../assets/livingRoomAssets/deuteranomaly/mag1.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "deuteranopiaOn" src="../../../assets/livingRoomAssets/deuteranopia/mag1.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "tritanomalyOn" src="../../../assets/livingRoomAssets/tritanomaly/mag1.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "tritanopiaOn" src="../../../assets/livingRoomAssets/tritanopia/mag1.png" alt="A Magazine Cover" />
+								</div>
+							</ng-template>
+
+							<!-- Magazine 2 (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img class="magazineCover" *ngIf = "normalVisionOn" src="../../../assets/livingRoomAssets/normalVision/mag2.jpg" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "protanomalyOn" src="../../../assets/livingRoomAssets/protanomaly/mag2.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "protanopiaOn" src="../../../assets/livingRoomAssets/protanopia/mag2.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "deuteranomalyOn" src="../../../assets/livingRoomAssets/deuteranomaly/mag2.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "deuteranopiaOn" src="../../../assets/livingRoomAssets/deuteranopia/mag2.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "tritanomalyOn" src="../../../assets/livingRoomAssets/tritanomaly/mag2.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "tritanopiaOn" src="../../../assets/livingRoomAssets/tritanopia/mag2.png" alt="A Magazine Cover" />
+								</div>
+							</ng-template>
+
+							<!-- Magazine 3 (a slide in the carousel): images displayed depend on colour blindness selected-->
+							<ng-template ngbSlide>
+								<div class="picsum-img-wrapper">
+									<img class="magazineCover" *ngIf = "normalVisionOn" src="../../../assets/livingRoomAssets/normalVision/mag3.jpg" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "protanomalyOn" src="../../../assets/livingRoomAssets/protanomaly/mag3.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "protanopiaOn" src="../../../assets/livingRoomAssets/protanopia/mag3.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "deuteranomalyOn" src="../../../assets/livingRoomAssets/deuteranomaly/mag3.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "deuteranopiaOn" src="../../../assets/livingRoomAssets/deuteranopia/mag3.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "tritanomalyOn" src="../../../assets/livingRoomAssets/tritanomaly/mag3.png" alt="A Magazine Cover" />
+									<img class="magazineCover" *ngIf = "tritanopiaOn" src="../../../assets/livingRoomAssets/tritanopia/mag3.png" alt="A Magazine Cover" />
+								</div>
+							</ng-template>
+
+					</ngb-carousel>
+        </div>
+      </div>
+    </ng-template>
+
+
+
+</body>
