@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActiveCBDService } from 'src/app/services/active-cbd.service';
+import { ActiveMyopiaService } from 'src/app/services/active-myopia.service';
 
 @Component({
   selector: 'app-disability-menu',
@@ -8,7 +9,7 @@ import { ActiveCBDService } from 'src/app/services/active-cbd.service';
 })
 export class DisabilityMenuComponent implements OnInit {
   
-  constructor(private activeCBDService: ActiveCBDService) { }
+  constructor(private activeCBDService: ActiveCBDService, private activeMyopiaService: ActiveMyopiaService) { }
 
   ngOnInit(): void {
     // Loop the Tinnitus audio
@@ -108,7 +109,7 @@ export class DisabilityMenuComponent implements OnInit {
 
 
 
-   // When one of the Tinnitus buttons is clicked: 
+   // When one of the CBD buttons is clicked: 
    toggleColourBlindness(selectedCBD: string){
      // Depending on which CBD button was clicked, set the CDB variables in session storage to the unique CBD type
      // Then send a signal to the active CBD service 
@@ -141,6 +142,36 @@ export class DisabilityMenuComponent implements OnInit {
         this.activeCBDService.sendActiveCBD();
       }
    }
+
+
+
+
+
+
+
+
+
+  // When one of the myopia buttons is clicked: 
+  toggleMyopia(selectedMyopia: string){
+    // Depending on which myopia button was clicked, set the myopia variables in session storage to the unique myopia type
+    // Then send a signal to the active myopia service 
+    if (selectedMyopia == "normalVision"){
+      sessionStorage.setItem("myopia", "normalVision")
+      this.activeMyopiaService.sendActiveMyopia();
+    }
+    else if (selectedMyopia == "mild"){
+      sessionStorage.setItem("myopia", "mild")
+      this.activeMyopiaService.sendActiveMyopia();
+    }
+    else if(selectedMyopia == "significant"){
+      sessionStorage.setItem("myopia", "significant")
+      this.activeMyopiaService.sendActiveMyopia();
+    }
+    else if(selectedMyopia == "severe"){
+      sessionStorage.setItem("myopia", "severe")
+      this.activeMyopiaService.sendActiveMyopia();
+    }
+  }
 
 
 

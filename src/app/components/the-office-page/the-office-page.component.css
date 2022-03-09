@@ -400,3 +400,33 @@ body{
 
 
 
+
+
+
+
+
+/* Following is myopia css */
+.myopia{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+#mildMyopia {
+  backdrop-filter: blur(1px);
+}
+
+#significantMyopia {
+  backdrop-filter: blur(5px);
+}
+
+#severeMyopia {
+  backdrop-filter: blur(10px);
+}
+
+
+
+
