@@ -30,9 +30,9 @@
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
         
         <!-- Overlays for myopia -->
-        <div class = "myopia" id="mildMyopia"></div>
-        <div class = "myopia" id="significantMyopia"></div>
-        <div class = "myopia" id="severeMyopia"></div>
+        <div class = "myopia" id="mildMyopia" *ngIf = "mildMyopiaOn" ></div>
+        <div class = "myopia" id="significantMyopia" *ngIf = "significantMyopiaOn" ></div>
+        <div class = "myopia" id="severeMyopia" *ngIf = "severeMyopiaOn" ></div>
 
         <!-- The dropdown "to do" list which displays what tasks the user needs to complete -->
         <div ngbDropdown class="d-inline-block">

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import {NgbModal, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { ActiveCBDService } from 'src/app/services/active-cbd.service';
+import { ActiveMyopiaService } from 'src/app/services/active-myopia.service'
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,8 +14,9 @@ export class TheOfficePageComponent implements OnInit {
 
   // Create subscription object 
   cbdSelectionSubscription:Subscription;
+  myopiaSelectionSubscription:Subscription;
 
-  constructor(private modalService: NgbModal, config: NgbCarouselConfig, private activeCBDService:ActiveCBDService) {
+  constructor(private modalService: NgbModal, config: NgbCarouselConfig, private activeCBDService:ActiveCBDService, private activeMyopiaService:ActiveMyopiaService) {
 
     // Book carousel - do not show bars at bottom
     config.showNavigationIndicators = false;
@@ -23,6 +25,12 @@ export class TheOfficePageComponent implements OnInit {
     this.cbdSelectionSubscription = this.activeCBDService.getActiveCBD().subscribe(()=>{
       this.setCBDImages();
     })
+
+    // Subscribe the office to activeMyopiaService. When the user clicks one of the myopia in the disability menu, this subscriber will know
+    this.myopiaSelectionSubscription = this.activeMyopiaService.getActiveMyopia().subscribe(()=>{
+      this.setMyopiaVariables();
+    })
+
    }
 
   // Create an audio object for office background music
@@ -409,6 +417,53 @@ export class TheOfficePageComponent implements OnInit {
       this.deuteranopiaOn = false;
       this.tritanomalyOn = false;
       this.tritanopiaOn = false;
+    }
+  }
+
+
+
+
+
+
+
+
+  // Myopia code follows
+
+  // Set all of the initial Myopia booleans
+  noMyopiaOn = true;
+  mildMyopiaOn = false;
+  significantMyopiaOn  = false;
+  severeMyopiaOn = false;
+
+  // Set booleans to turn on/off myopia overlays
+  // When change occurs in the active myopia service (e.g. a myopia is selected in the disabilities menu), this is triggered.
+  setMyopiaVariables(){
+    if (sessionStorage.getItem("myopia") === "mild"){
+      this.noMyopiaOn = false;
+      this.mildMyopiaOn = true;
+      this.significantMyopiaOn  = false;
+      this.severeMyopiaOn = false;
+    }
+
+    else if (sessionStorage.getItem("myopia") === "significant"){
+      this.noMyopiaOn = false;
+      this.mildMyopiaOn = false;
+      this.significantMyopiaOn  = true;
+      this.severeMyopiaOn = false;
+    }
+
+    else if (sessionStorage.getItem("myopia") === "severe"){
+      this.noMyopiaOn = false;
+      this.mildMyopiaOn = false;
+      this.significantMyopiaOn  = false;
+      this.severeMyopiaOn = true;
+    }
+
+    else{
+      this.noMyopiaOn = true;
+      this.mildMyopiaOn = false;
+      this.significantMyopiaOn  = false;
+      this.severeMyopiaOn = false;
     }
   }
 
