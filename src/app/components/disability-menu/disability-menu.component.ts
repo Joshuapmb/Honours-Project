@@ -108,7 +108,7 @@ export class DisabilityMenuComponent implements OnInit {
 
 
 
-   // When one of the Tinnitus buttons is clicked: 
+   // When one of the CBD buttons is clicked: 
    toggleColourBlindness(selectedCBD: string){
      // Depending on which CBD button was clicked, set the CDB variables in session storage to the unique CBD type
      // Then send a signal to the active CBD service 
@@ -141,6 +141,36 @@ export class DisabilityMenuComponent implements OnInit {
         this.activeCBDService.sendActiveCBD();
       }
    }
+
+
+
+
+
+
+
+
+
+  // When one of the myopia buttons is clicked: 
+  toggleMyopia(selectedMyopia: string){
+    // Depending on which CBD button was clicked, set the myopia variables in session storage to the unique myopia type
+    // Then send a signal to the active myopia service 
+      if (selectedMyopia == "normalVision"){
+        sessionStorage.setItem("myopia", "normalVision")
+        // this.activeCBDService.sendActiveCBD();
+      }
+      else if (selectedMyopia == "mild"){
+        sessionStorage.setItem("myopia", "mild")
+        // this.activeCBDService.sendActiveCBD();
+      }
+      else if(selectedMyopia == "significant"){
+        sessionStorage.setItem("myopia", "significant")
+        // this.activeCBDService.sendActiveCBD();
+      }
+      else if(selectedMyopia == "severe"){
+        sessionStorage.setItem("myopia", "severe")
+        // this.activeCBDService.sendActiveCBD();
+      }
+  }
 
 
 

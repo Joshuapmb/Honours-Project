@@ -29,6 +29,11 @@
         <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
         <button class = "interactableButton" id = "book" ngbTooltip="Read a book" (click)="openBackDropCustomClass(bookModal)"></button>
         
+        <!-- Overlays for myopia -->
+        <div class = "myopia" id="mildMyopia"></div>
+        <div class = "myopia" id="significantMyopia"></div>
+        <div class = "myopia" id="severeMyopia"></div>
+
         <!-- The dropdown "to do" list which displays what tasks the user needs to complete -->
         <div ngbDropdown class="d-inline-block">
           <button class = "dropdownButton" id="dropdownForm1" ngbDropdownToggle>Things to email to Josh</button>
