@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class TheDrivingPageComponent implements OnInit {
 
-   // Create subscription object 
+// Create subscription object 
  cbdSelectionSubscription:Subscription;
  myopiaSelectionSubscription:Subscription;
 
@@ -34,17 +34,14 @@ export class TheDrivingPageComponent implements OnInit {
   }
 
  // Create an audio object for office background music
- officeBackgroundMusic = new Audio(); 
-
- // Create an audio object for stroking the cat
- catPurring = new Audio();
+ drivingBackgroundMusic = new Audio(); 
 
  // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
  // Can be toggled true/false when the speakers are toggled within the office
  musicPlaying = false;
 
  // Determines whtehr the office has been entered and which covers to display
- officeEntered = false;
+ drivingEntered = false;
 
 
 
@@ -57,12 +54,9 @@ export class TheDrivingPageComponent implements OnInit {
  // 1. Load some default music which can be changed by the user
  // 2. Load other sounds 
  ngOnInit(): void {
-     this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
-     this.officeBackgroundMusic.loop = true;
-     this.officeBackgroundMusic.load();
-
-     this.catPurring.src = "../../../assets/livingRoomAssets/audio/catPurring.wav"
-     this.catPurring.load();
+     this.drivingBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
+     this.drivingBackgroundMusic.loop = true;
+     this.drivingBackgroundMusic.load();
 
      // Set the correct images based off of session variables
      this.setCBDImages()
@@ -86,11 +80,11 @@ export class TheDrivingPageComponent implements OnInit {
  // When the speakers are clicked, turn the music on or off
  toggleMusic(){
    if (this.musicPlaying == true){
-     this.officeBackgroundMusic.pause();
+     this.drivingBackgroundMusic.pause();
      this.musicPlaying = false;
    }
    else{
-     this.officeBackgroundMusic.play();
+     this.drivingBackgroundMusic.play();
      this.musicPlaying = true;
    }
  }
@@ -98,21 +92,21 @@ export class TheDrivingPageComponent implements OnInit {
  // When screen 2 is selected and the user changes the Song by pressing the buttons on the modal, this method is called
  changeSong(song: string){
    if(song=="enigmatic"){
-     this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
-     this.officeBackgroundMusic.load();
-     this.officeBackgroundMusic.play();
+     this.drivingBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
+     this.drivingBackgroundMusic.load();
+     this.drivingBackgroundMusic.play();
      this.musicPlaying = true;
    }
    if(song=="jazzyFrench"){
-     this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/jazzyfrenchy.mp3"
-     this.officeBackgroundMusic.load();
-     this.officeBackgroundMusic.play();
+     this.drivingBackgroundMusic.src = "../../../assets/officeAssets/audio/jazzyfrenchy.mp3"
+     this.drivingBackgroundMusic.load();
+     this.drivingBackgroundMusic.play();
      this.musicPlaying = true;
    }
    if(song=="happyRock"){
-     this.officeBackgroundMusic.src = "../../../assets/officeAssets/audio/happyrock.mp3"
-     this.officeBackgroundMusic.load();
-     this.officeBackgroundMusic.play();
+     this.drivingBackgroundMusic.src = "../../../assets/officeAssets/audio/happyrock.mp3"
+     this.drivingBackgroundMusic.load();
+     this.drivingBackgroundMusic.play();
      this.musicPlaying = true;
    }
  }
@@ -127,35 +121,21 @@ export class TheDrivingPageComponent implements OnInit {
 
 
  // Called when you enter and leave the office via the buttons
- toggleOffice() {
+ toggleDriving() {
    // If you have been in the office, this is called as you leave
    // Switches the covers over office/navbar and pauses music/ringtone
-   if(this.officeEntered){
-     this.officeEntered = false
-     this.officeBackgroundMusic.pause();
+   if(this.drivingEntered){
+     this.drivingEntered = false
+     this.drivingBackgroundMusic.pause();
      this.musicPlaying = false;
    }
    // If you are outside the office this is called as you enter
    // Switches the covers over office/navbar and starts/resumes music
-   else if(!this.officeEntered){
-     this.officeEntered = true
+   else if(!this.drivingEntered){
+     this.drivingEntered = true
    }
  }
  
-
-
-
-
-
-
-
-// When use clicks on the cat to pet it, this triggers
- petCat(){
-  this.catPurring.play();
- }
-
-
-
 
 
 
@@ -298,6 +278,185 @@ export class TheDrivingPageComponent implements OnInit {
       this.severeMyopiaOn = false;
     }
   }
+
+
+
+
+
+
+
+
+
+  // Driving background code follows
+  
+  // Set all of the initial CBD booleans
+  dBG1Active = true;
+  dBG2Active = false;
+  dBG3Active = false;
+  dBG4Active = false;
+  dBG5Active = false;
+  dBG6Active = false;
+  dBG7Active = false;
+  dBG8Active = false;
+  dBG9Active = false;
+  dBG10Active = false;
+  dBG11Active = false;
+
+  drive(activeBG: any){
+    if(activeBG == "2"){
+      this.dBG1Active = false;
+      this.dBG2Active = true;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }
+
+    else if(activeBG == "3"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = true;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }
+
+    else if(activeBG == "4"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = true;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }
+
+    else if(activeBG == "5"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = true;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }        
+
+    else if(activeBG == "6"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = true;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }
+
+    else if(activeBG == "7"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = true;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }
+
+    else if(activeBG == "8"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = true;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }  
+    else if(activeBG == "9"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = true;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }
+
+    else if(activeBG == "10"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = true;
+      this.dBG11Active = false;
+    }
+
+    else if(activeBG == "11"){
+      this.dBG1Active = false;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = true;
+    }    
+    
+    else{
+      this.dBG1Active = true;
+      this.dBG2Active = false;
+      this.dBG3Active = false;
+      this.dBG4Active = false;
+      this.dBG5Active = false;
+      this.dBG6Active = false;
+      this.dBG7Active = false;
+      this.dBG8Active = false;
+      this.dBG9Active = false;
+      this.dBG10Active = false;
+      this.dBG11Active = false;
+    }    
+  }
+
 
 
 }

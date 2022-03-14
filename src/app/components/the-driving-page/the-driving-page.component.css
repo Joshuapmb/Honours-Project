@@ -16,7 +16,7 @@ body{
 /* Following is for main office interactables CSS */
 
 /* CSS for div containing all of the office */
-#livingRoomSetup {
+#drivingSetup {
   position: relative;
   display: block;
   margin-left: auto;
@@ -47,79 +47,30 @@ body{
 
 /* Placement and size of speaker interactable */
 #speaker1{
-  right: 73%;
-  top: 32%;
-  height: 35%;
-  width: 5.5%;
-  max-width: 5.5%;
-}
-
-/* Placement and size of speaker interactable */
-#speaker2{
-  right: 7.5%;
-  top: 32%;
-  height: 20%;
-  width: 5%;
-  max-width: 5%;
-}
-
-/* Placement and size of screen interactable */
-#screen1{
-  right: 48%;
-  top: 33%;
-  height: 23%;
-  width: 10%;
-  max-width: 10%;
+  right: 92.2%;
+  top: 93.5%;
+  height: 3%;
+  width: 2.4%;
+  max-width: 2.4%;
+  border-radius: 45%;
 }
 
 /* Placement and size of screen interactable */
 #screen2{
-  right: 80.5%;
-  top: 26.3%;
-  height: 11.2%;
-  width: 12%;
-  max-width: 12%;
+  right: 72.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 16.5%;
+  max-width: 16.5%;
 }
 
-/* Placement and size of book interactable */
-#book{
-  right: 32.5%;
-  top: 72.5%;
-  height: 10%;
-  width: 15%;
-  max-width: 15%;
+#driveHere1{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 16.5%;
+  max-width: 16.5%;
 }
-
-/* Placement and size of cat interactable */
-#cat{
-  right: 72%;
-  top: 80%;
-  height: 18%;
-  width: 15%;
-  max-width: 15%;
-  border-radius: 45%;
-}
-
-/* Placement and size of magazines interactable */
-#magazines{
-  right: 54%;
-  top: 65%;
-  height: 10%;
-  width: 10%;
-  max-width: 10%;
-}
-
-/* Placement and size of tv interactable */
-#tv{
-  right: 32.5%;
-  top: 25.55%;
-  height: 19%;
-  width: 21.5%;
-  max-width: 21.5%;
-}
-
-
-
 
 
 
