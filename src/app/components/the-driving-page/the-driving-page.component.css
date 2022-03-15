@@ -47,29 +47,118 @@ body{
 
 /* Placement and size of speaker interactable */
 #speaker1{
-  right: 92.2%;
-  top: 93.5%;
-  height: 3%;
-  width: 2.4%;
-  max-width: 2.4%;
+  right: 92.5%;
+  top: 90.3%;
+  height: 4%;
+  width: 2%;
+  max-width: 2%;
   border-radius: 45%;
 }
 
 /* Placement and size of screen interactable */
 #screen2{
   right: 72.5%;
-  top: 77.5%;
-  height: 13.5%;
+  top: 64.5%;
+  height: 22.5%;
   width: 16.5%;
   max-width: 16.5%;
 }
 
+
+
+
+
+
+
+
+
+/* Following is for driving in different directions CSS */
 #driveHere1{
   right: 50.5%;
   top: 77.5%;
   height: 13.5%;
-  width: 16.5%;
-  max-width: 16.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere2{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere3{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere4{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere5{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere6{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere7{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere8{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere9{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere10{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
+}
+
+#driveHere11{
+  right: 50.5%;
+  top: 77.5%;
+  height: 13.5%;
+  width: 13.5%;
+  max-width: 13.5%;
 }
 
 
