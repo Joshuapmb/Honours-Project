@@ -64,6 +64,52 @@ body{
   max-width: 16.5%;
 }
 
+/* Placement and size of traffic lights */
+#trafficLights{
+  right: 51%;
+  top: 1%;
+  height: 6%;
+  width: 4%;
+  max-width: 4%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+/* Placement and size of pedestrians */
+#pedestrians{
+  right: 57%;
+  top: 8%;
+  height: 10%;
+  width: 10%;
+  max-width: 10%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+/* Placement and size of white car */
+#whiteCar{
+  right: 68%;
+  top: 13%;
+  height: 10%;
+  width: 10%;
+  max-width: 10%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+/* Placement and size of white car */
+#indicator{
+  right: 53%;
+  top: 78%;
+  height: 10%;
+  width: 10%;
+  max-width: 10%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+
+
 
 
 
@@ -74,91 +120,104 @@ body{
 
 /* Following is for driving in different directions CSS */
 #driveHere1{
-  right: 50.5%;
-  top: 77.5%;
+  right: 55%;
+  top: 30%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 8%;
+  max-width: 8%;
 }
 
 #driveHere2{
-  right: 50.5%;
-  top: 77.5%;
+  right: 65%;
+  top: 24%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 7%;
+  max-width: 7%;
 }
 
 #driveHere3{
-  right: 50.5%;
-  top: 77.5%;
+  right: 50%;
+  top: 25%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 8%;
+  max-width: 8%;
 }
 
 #driveHere4{
-  right: 50.5%;
-  top: 77.5%;
+  right: 48%;
+  top: 20%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 10%;
+  max-width: 10%;
 }
 
 #driveHere5{
-  right: 50.5%;
-  top: 77.5%;
-  height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  right: 52%;
+  top: 25%;
+  height: 10%;
+  width: 4%;
+  max-width: 4%;
 }
 
 #driveHere6{
-  right: 50.5%;
-  top: 77.5%;
+  right: 53%;
+  top: 20%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 6%;
+  max-width: 6%;
 }
 
 #driveHere7{
-  right: 50.5%;
-  top: 77.5%;
+  right: 52%;
+  top: 20%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 8%;
+  max-width: 8%;
 }
 
 #driveHere8{
-  right: 50.5%;
-  top: 77.5%;
+  right: 55%;
+  top: 16%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 8%;
+  max-width: 8%;
 }
 
 #driveHere9{
-  right: 50.5%;
-  top: 77.5%;
+  right: 65%;
+  top: 20%;
   height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  width: 8%;
+  max-width: 8%;
 }
 
 #driveHere10{
-  right: 50.5%;
-  top: 77.5%;
-  height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  right: 58%;
+  top: 10%;
+  height: 10%;
+  width: 4%;
+  max-width: 4%;
 }
 
 #driveHere11{
-  right: 50.5%;
-  top: 77.5%;
-  height: 13.5%;
-  width: 13.5%;
-  max-width: 13.5%;
+  right: 53%;
+  top: 10%;
+  height: 7%;
+  width: 4%;
+  max-width: 4%;
+}
+
+#resetCar{
+  right: 25%;
+  top: 25%;
+  height: 50%;
+  width: 50%;
+  max-width: 50%;
+
+  font-size: 3rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
 }
 
 

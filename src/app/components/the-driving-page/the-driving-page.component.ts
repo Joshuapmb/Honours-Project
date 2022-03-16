@@ -289,7 +289,7 @@ export class TheDrivingPageComponent implements OnInit {
 
   // Driving background code follows
   
-  // Set all of the initial CBD booleans
+  // Set all of the initial background image booleans
   dBG1Active = true;
   dBG2Active = false;
   dBG3Active = false;
@@ -302,7 +302,18 @@ export class TheDrivingPageComponent implements OnInit {
   dBG10Active = false;
   dBG11Active = false;
 
+  //  Set booleans for obstacles
+  redLight = false;
+  canHitPedestrians = false;
+  canHitWhiteCar = false;
+
+  needsToIndicate = false;
+
   drive(activeBG: any){
+
+    // Before proceeding to the new area, check if the player can crash (true if they haven't cleared obstacles)
+    this.canWeCrash()
+
     if(activeBG == "2"){
       this.dBG1Active = false;
       this.dBG2Active = true;
@@ -315,6 +326,8 @@ export class TheDrivingPageComponent implements OnInit {
       this.dBG9Active = false;
       this.dBG10Active = false;
       this.dBG11Active = false;
+
+      this.needsToIndicate = true;
     }
 
     else if(activeBG == "3"){
@@ -343,6 +356,9 @@ export class TheDrivingPageComponent implements OnInit {
       this.dBG9Active = false;
       this.dBG10Active = false;
       this.dBG11Active = false;
+
+      this.canHitWhiteCar = true;
+      this.needsToIndicate = true;
     }
 
     else if(activeBG == "5"){
@@ -385,6 +401,9 @@ export class TheDrivingPageComponent implements OnInit {
       this.dBG9Active = false;
       this.dBG10Active = false;
       this.dBG11Active = false;
+
+      this.redLight = true;
+      this.canHitPedestrians = true;
     }
 
     else if(activeBG == "8"){
@@ -399,6 +418,8 @@ export class TheDrivingPageComponent implements OnInit {
       this.dBG9Active = false;
       this.dBG10Active = false;
       this.dBG11Active = false;
+      
+      this.needsToIndicate = true;
     }  
     else if(activeBG == "9"){
       this.dBG1Active = false;
@@ -426,6 +447,8 @@ export class TheDrivingPageComponent implements OnInit {
       this.dBG9Active = false;
       this.dBG10Active = true;
       this.dBG11Active = false;
+      
+      this.needsToIndicate = true;
     }
 
     else if(activeBG == "11"){
@@ -455,6 +478,82 @@ export class TheDrivingPageComponent implements OnInit {
       this.dBG10Active = false;
       this.dBG11Active = false;
     }    
+  }
+
+
+
+
+
+
+
+
+
+
+  // Below are the methods for removing obstacles and crashing the car 
+
+  // Runs when obstacle is clicked to clear it
+  clearTrafficLights(){
+    var trafficLightComponent = document.getElementById("trafficLights")
+    if(trafficLightComponent){
+      trafficLightComponent.style.outlineColor = "lime"
+      this.redLight = false;
+    }
+  }
+
+
+  // Runs when obstacle is clicked to clear it
+  clearPedestrians(){
+    var pedestriansComponent = document.getElementById("pedestrians")
+    if(pedestriansComponent){
+      pedestriansComponent.style.outlineColor = "lime"
+      this.canHitPedestrians = false;
+    }
+  }
+
+
+  // Runs when obstacle is clicked to clear it
+  clearWhiteCar(){
+    var whiteCarComponent = document.getElementById("whiteCar")
+    if(whiteCarComponent){
+      whiteCarComponent.style.outlineColor = "lime"
+      this.canHitWhiteCar = false;
+    }
+  }
+
+
+  // Runs when obstacle is clicked to clear it
+  indicate(){
+    var indicatorComponent = document.getElementById("indicator")
+    if(indicatorComponent){
+      indicatorComponent.style.outlineColor = "lime"
+      this.needsToIndicate = false;
+    }
+  }
+  
+    
+
+  // If this is true and the user clicks to drive to the next area, they will crash 
+  canCrash = false;
+
+  // Before proceeding to the next area, this is called to check if the user can crash, if they can crash and drive on, a bool is set and a different picture will therefore be displayed of the crash
+  canWeCrash(){
+    if(this.redLight || this.canHitPedestrians || this.canHitWhiteCar || this.needsToIndicate ){
+      this.canCrash = true;
+    }
+    else{
+      this.canCrash = false;
+    }
+  }
+
+
+  // Reset the car's starting position and variables. Runs when user crashes and presses reset button
+  resetCar(){
+    this.redLight = false;
+    this.canHitPedestrians = false;
+    this.canHitWhiteCar = false;
+    this.needsToIndicate = false;
+    this.canCrash = false;
+    this.drive("1")
   }
 
 
