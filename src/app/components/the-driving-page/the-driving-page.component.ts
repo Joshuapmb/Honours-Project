@@ -33,8 +33,11 @@ export class TheDrivingPageComponent implements OnInit {
 
   }
 
- // Create an audio object for office background music
+ // Create an audio object for driving background music
  drivingBackgroundMusic = new Audio(); 
+ 
+ // Create an audio object for driving background car driving sounds
+ drivingBackgroundSound = new Audio(); 
 
  // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
  // Can be toggled true/false when the speakers are toggled within the office
@@ -57,6 +60,10 @@ export class TheDrivingPageComponent implements OnInit {
      this.drivingBackgroundMusic.src = "../../../assets/officeAssets/audio/enigmatic.mp3"
      this.drivingBackgroundMusic.loop = true;
      this.drivingBackgroundMusic.load();
+
+     this.drivingBackgroundSound.src = "../../../assets/drivingAssets/audio/carDriveSound.wav"
+     this.drivingBackgroundSound.loop = true;
+     this.drivingBackgroundSound.load();
 
      // Set the correct images based off of session variables
      this.setCBDImages()
@@ -127,12 +134,14 @@ export class TheDrivingPageComponent implements OnInit {
    if(this.drivingEntered){
      this.drivingEntered = false
      this.drivingBackgroundMusic.pause();
+     this.drivingBackgroundSound.pause();
      this.musicPlaying = false;
    }
    // If you are outside the office this is called as you enter
    // Switches the covers over office/navbar and starts/resumes music
    else if(!this.drivingEntered){
      this.drivingEntered = true
+     this.drivingBackgroundSound.play();
    }
  }
  
