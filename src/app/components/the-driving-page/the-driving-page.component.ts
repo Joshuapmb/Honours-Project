@@ -38,6 +38,9 @@ export class TheDrivingPageComponent implements OnInit {
  
  // Create an audio object for driving background car driving sounds
  drivingBackgroundSound = new Audio(); 
+ 
+ // Create an audio object for when you are indicating
+ indicatorSound = new Audio(); 
 
  // Create an audio object for when car crashes
  carCrash = new Audio(); 
@@ -70,6 +73,9 @@ export class TheDrivingPageComponent implements OnInit {
 
      this.carCrash.src = "../../../assets/drivingAssets/audio/carCrashSound.wav";
      this.carCrash.load();
+
+     this.indicatorSound.src = "../../../assets/drivingAssets/audio/indicatorSound.wav";
+     this.indicatorSound.load();
 
 
      // Set the correct images based off of session variables
@@ -155,7 +161,9 @@ export class TheDrivingPageComponent implements OnInit {
      }
    }
  }
- 
+
+
+
 
 
 
@@ -547,6 +555,7 @@ export class TheDrivingPageComponent implements OnInit {
     if(indicatorComponent){
       indicatorComponent.style.outlineColor = "lime"
       this.needsToIndicate = false;
+     this.indicatorSound.play();
     }
   }
   
