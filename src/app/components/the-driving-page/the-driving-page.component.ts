@@ -39,6 +39,9 @@ export class TheDrivingPageComponent implements OnInit {
  // Create an audio object for driving background car driving sounds
  drivingBackgroundSound = new Audio(); 
 
+ // Create an audio object for when car crashes
+ carCrash = new Audio(); 
+
  // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
  // Can be toggled true/false when the speakers are toggled within the office
  musicPlaying = false;
@@ -64,6 +67,10 @@ export class TheDrivingPageComponent implements OnInit {
      this.drivingBackgroundSound.src = "../../../assets/drivingAssets/audio/carDriveSound.wav"
      this.drivingBackgroundSound.loop = true;
      this.drivingBackgroundSound.load();
+
+     this.carCrash.src = "../../../assets/drivingAssets/audio/carCrashSound.wav";
+     this.carCrash.load();
+
 
      // Set the correct images based off of session variables
      this.setCBDImages()
@@ -141,7 +148,11 @@ export class TheDrivingPageComponent implements OnInit {
    // Switches the covers over office/navbar and starts/resumes music
    else if(!this.drivingEntered){
      this.drivingEntered = true
-     this.drivingBackgroundSound.play();
+
+     // If the user crashes the car and leaves the driving env. to then re-enter it, do not play driving music. It will play when they press 'reset'
+     if(!this.canCrash){
+      this.drivingBackgroundSound.play();
+     }
    }
  }
  
@@ -546,8 +557,12 @@ export class TheDrivingPageComponent implements OnInit {
 
   // Before proceeding to the next area, this is called to check if the user can crash, if they can crash and drive on, a bool is set and a different picture will therefore be displayed of the crash
   canWeCrash(){
+    // If car crashed
     if(this.redLight || this.canHitPedestrians || this.canHitWhiteCar || this.needsToIndicate ){
       this.canCrash = true;
+      
+      this.drivingBackgroundSound.pause();
+      this.carCrash.play();
     }
     else{
       this.canCrash = false;
@@ -562,6 +577,8 @@ export class TheDrivingPageComponent implements OnInit {
     this.canHitWhiteCar = false;
     this.needsToIndicate = false;
     this.canCrash = false;
+    
+    this.drivingBackgroundSound.play();
     this.drive("1")
   }
 
