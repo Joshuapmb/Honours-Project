@@ -6,6 +6,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { LearnMorePageComponent } from './components/learn-more-page/learn-more-page.component';
 import { TheLivingRoomPageComponent } from './components/the-living-room-page/the-living-room-page.component';
 import { TheOfficePageComponent } from './components/the-office-page/the-office-page.component';
+import { TheDrivingPageComponent } from './components/the-driving-page/the-driving-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'learnMore', component: LearnMorePageComponent },
   { path: 'theLivingRoom', component: TheLivingRoomPageComponent },
-  { path: 'theOffice', component: TheOfficePageComponent }
+  { path: 'theOffice', component: TheOfficePageComponent },
+  { path: 'driving', component: TheDrivingPageComponent}
 ];
 
 @NgModule({

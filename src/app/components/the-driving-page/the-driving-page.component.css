@@ -1,0 +1,414 @@
+/* CSS that affects the whole body of the office */
+body{
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* Following is for main office interactables CSS */
+
+/* CSS for div containing all of the office */
+#drivingSetup {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CSS for the main office background image */
+#background {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* All interabtables will have this outline */
+.interactableButton{
+  position: absolute;
+  outline: rgb(255, 255, 0);
+  outline-style: dotted;
+  background-color: rgba(232, 232, 232, 0.25);
+  border-color: transparent;
+}
+
+/* All interatables will have a change of outline when hovered on  */
+.interactableButton:hover{
+  outline-style: solid;
+}
+
+/* Placement and size of speaker interactable */
+#speaker1{
+  right: 92.5%;
+  top: 90.3%;
+  height: 4%;
+  width: 2%;
+  max-width: 2%;
+  border-radius: 45%;
+}
+
+/* Placement and size of screen interactable */
+#screen2{
+  right: 72.5%;
+  top: 64.5%;
+  height: 22.5%;
+  width: 16.5%;
+  max-width: 16.5%;
+}
+
+/* Placement and size of traffic lights */
+#trafficLights{
+  right: 51%;
+  top: 1%;
+  height: 6%;
+  width: 4%;
+  max-width: 4%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+/* Placement and size of pedestrians */
+#pedestrians{
+  right: 57%;
+  top: 8%;
+  height: 10%;
+  width: 10%;
+  max-width: 10%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+/* Placement and size of white car */
+#whiteCar{
+  right: 68%;
+  top: 13%;
+  height: 10%;
+  width: 10%;
+  max-width: 10%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+/* Placement and size of white car */
+#indicator{
+  right: 53%;
+  top: 78%;
+  height: 10%;
+  width: 10%;
+  max-width: 10%;
+  border-radius: 45%;
+  outline-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Following is for driving in different directions CSS */
+#driveHere1{
+  right: 55%;
+  top: 30%;
+  height: 13.5%;
+  width: 8%;
+  max-width: 8%;
+}
+
+#driveHere2{
+  right: 65%;
+  top: 24%;
+  height: 13.5%;
+  width: 7%;
+  max-width: 7%;
+}
+
+#driveHere3{
+  right: 50%;
+  top: 25%;
+  height: 13.5%;
+  width: 8%;
+  max-width: 8%;
+}
+
+#driveHere4{
+  right: 48%;
+  top: 20%;
+  height: 13.5%;
+  width: 10%;
+  max-width: 10%;
+}
+
+#driveHere5{
+  right: 52%;
+  top: 25%;
+  height: 10%;
+  width: 4%;
+  max-width: 4%;
+}
+
+#driveHere6{
+  right: 53%;
+  top: 20%;
+  height: 13.5%;
+  width: 6%;
+  max-width: 6%;
+}
+
+#driveHere7{
+  right: 52%;
+  top: 20%;
+  height: 13.5%;
+  width: 8%;
+  max-width: 8%;
+}
+
+#driveHere8{
+  right: 55%;
+  top: 16%;
+  height: 13.5%;
+  width: 8%;
+  max-width: 8%;
+}
+
+#driveHere9{
+  right: 65%;
+  top: 20%;
+  height: 13.5%;
+  width: 8%;
+  max-width: 8%;
+}
+
+#driveHere10{
+  right: 58%;
+  top: 10%;
+  height: 10%;
+  width: 4%;
+  max-width: 4%;
+}
+
+#driveHere11{
+  right: 53%;
+  top: 10%;
+  height: 7%;
+  width: 4%;
+  max-width: 4%;
+}
+
+#resetCar{
+  right: 25%;
+  top: 25%;
+  height: 50%;
+  width: 50%;
+  max-width: 50%;
+
+  font-size: 3rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+}
+
+
+
+
+
+
+/* CSS for the "to do" list */
+
+/* Placement and size of to do list */
+.d-inline-block{
+  position: absolute;
+  right: 5%;
+  top: 3%;
+}
+
+/* Styling of to do list button */
+.dropdownButton{
+  margin: 0 1rem;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 10px;   
+  cursor: pointer;
+  transition: color 0.2s ease-out, transform 0.2s ease-out;
+  color: dimgray;
+}
+
+.dropdownButton:focus{
+  outline: none;
+}
+
+.dropdownButton:hover{
+  color: #187bcd;
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS for office/navbar covers */
+
+/* Placement and size of enter room cover */
+#enterRoomCover{
+  right: 0%;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  background-color: rgba(232, 232, 232, 0.8);
+  border-color: transparent;
+  margin-right: auto;
+  font-size: 3rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+}
+
+/* Placement and size of enter room cover */
+#navbarCover{
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
+  right: 0%;
+  top: 0%;
+  z-index: 101;
+  
+  margin-right: auto;
+  align-items: center;
+  padding: 0 3rem;
+
+  font-size: 2rem;
+  color: dimgray;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
+
+  background-color: #efeeee;
+
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
+}
+
+
+
+
+
+
+
+
+
+
+/* Using an interactable / opening its modal CSS follows */
+.modal-body{
+  padding: 0% 0% 0% 0%;
+}
+
+#infoBookImage{
+  max-width: 100%;
+}
+
+.magazineCover{
+  max-width: 100%;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Following is for changing song CSS */
+
+/* Song select on screen 2 */
+#songSelect {
+  position: relative;
+  display: inline-block;
+}
+
+/* Background for modal body when screen 2 selected */
+#songSelectBackground {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* Button cover/interactable for a song */
+#enigmaticSong{
+  right: 1%;
+  top: 67.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+/* Button cover/interactable for a song */
+#jazzyFrenchSong{
+  right: 1%;
+  top: 78.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+/* Button cover/interactable for a song */
+#happyRockSong{
+  right: 1%;
+  top: 90.5%;
+  height: 9%;
+  width: 98%;
+  max-width: 98%;
+}
+
+
+
+
+
+
+
+
+
+/* Following is myopia css */
+.myopia{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+#mildMyopia {
+  backdrop-filter: blur(1px);
+}
+
+#significantMyopia {
+  backdrop-filter: blur(5px);
+}
+
+#severeMyopia {
+  backdrop-filter: blur(10px);
+}
+

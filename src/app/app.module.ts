@@ -11,6 +11,7 @@ import { TheLivingRoomPageComponent } from './components/the-living-room-page/th
 import { LearnMorePageComponent } from './components/learn-more-page/learn-more-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisabilityMenuComponent } from './components/disability-menu/disability-menu.component';
+import { TheDrivingPageComponent } from './components/the-driving-page/the-driving-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DisabilityMenuComponent } from './components/disability-menu/disability
     TheOfficePageComponent,
     TheLivingRoomPageComponent,
     LearnMorePageComponent,
-    DisabilityMenuComponent
+    DisabilityMenuComponent,
+    TheDrivingPageComponent
   ],
   imports: [
     BrowserModule,

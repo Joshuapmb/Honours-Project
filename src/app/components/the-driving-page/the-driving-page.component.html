@@ -1,0 +1,251 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<!-- Navbar cover: displayed when user starts driving -->
+<button *ngIf = "drivingEntered" id="navbarCover" (click)="toggleDriving()">Click Here To Stop Driving</button>
+
+
+<body>
+
+  <br>  
+
+    <!-- The whole driving section: this contains interactable objects and the background -->
+    <div id="drivingSetup">
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG1Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG1.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG1.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG1.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG1.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG1.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG1.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG1.png" alt="Driving Background" />
+
+          <button class = "interactableButton" id = "driveHere1" ngbTooltip="Drive Here" (click)="drive(2)"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG2Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG2.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG2.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG2.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG2.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG2.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG2.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG2.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere2" ngbTooltip="Drive Here" (click)="drive(3)"></button>
+          <button class = "interactableButton" id = "indicator" ngbTooltip="Indicate Right" (click)="indicate()"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG3Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG3.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG3.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG3.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG3.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG3.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG3.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG3.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere3" ngbTooltip="Drive Here" (click)="drive(4)"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG4Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG4.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG4.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG4.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG4.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG4.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG4.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG4.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere4" ngbTooltip="Drive Here" (click)="drive(5)"></button>
+
+          <button class = "interactableButton" id = "whiteCar" ngbTooltip="Watch out for white car" (click)="clearWhiteCar()"></button>
+          <button class = "interactableButton" id = "indicator" ngbTooltip="Indicate Left" (click)="indicate()"></button>
+
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG5Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG5.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG5.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG5.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG5.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG5.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG5.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG5.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere5" ngbTooltip="Drive Here" (click)="drive(6)"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG6Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG6.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG6.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG6.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG6.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG6.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG6.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG6.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere6" ngbTooltip="Drive Here" (click)="drive(7)"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG7Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG7.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG7.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG7.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG7.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG7.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG7.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG7.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere7" ngbTooltip="Drive Here" (click)="drive(8)"></button>
+
+          <button class = "interactableButton" id = "trafficLights" ngbTooltip="Wait for traffic lights" (click)="clearTrafficLights()"></button>
+          <button class = "interactableButton" id = "pedestrians" ngbTooltip="Wait for pedestrians" (click)="clearPedestrians()"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG8Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG8.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG8.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG8.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG8.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG8.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG8.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG8.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere8" ngbTooltip="Drive Here" (click)="drive(9)"></button>
+          <button class = "interactableButton" id = "indicator" ngbTooltip="Indicate Right" (click)="indicate()"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG9Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG9.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG9.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG9.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG9.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG9.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG9.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG9.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere9" ngbTooltip="Drive Here" (click)="drive(10)"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG10Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG10.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG10.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG10.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG10.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG10.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG10.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG10.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere10" ngbTooltip="Drive Here" (click)="drive(11)"></button>
+          <button class = "interactableButton" id = "indicator" ngbTooltip="Indicate Left" (click)="indicate()"></button>
+        </div>
+
+        <!-- This is the background of the driving, the specific image is displayed based on which colour blind option is active -->
+        <div *ngIf = "dBG11Active && !canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/drivingBG11.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/drivingBG11.png" alt="Driving Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/drivingBG11.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/drivingBG11.png" alt="Driving Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/drivingBG11.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/drivingBG11.png" alt="Driving Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/drivingBG11.png" alt="Driving Background" />
+          
+          <button class = "interactableButton" id = "driveHere11" ngbTooltip="Drive Here" (click)="drive(1)"></button>
+        </div>
+
+
+        <!-- The buttons for each interactable are displayed on top of the environment background -->
+        <button class = "interactableButton" id = "speaker1" ngbTooltip="Turn on/off music" (click)="toggleMusic()"></button>
+        <button class = "interactableButton" id = "screen2" ngbTooltip="Choose music" (click)="openBackDropCustomClass(musicModal)"></button>
+
+
+        <!-- Overlays for myopia -->
+        <div class = "myopia" id="mildMyopia" *ngIf = "mildMyopiaOn" ></div>
+        <div class = "myopia" id="significantMyopia" *ngIf = "significantMyopiaOn" ></div>
+        <div class = "myopia" id="severeMyopia" *ngIf = "severeMyopiaOn" ></div>
+
+
+        <!-- This is the background of the car crashing, the specific image is displayed based on which colour blind option is active.
+             It has been placed in front of the myopia blurs so users can easily see that they've crashed and can easily reset driving -->
+        <div *ngIf = "canCrash" >
+          <img id="background" *ngIf = "normalVisionOn" src="../../../assets/drivingAssets/normalVision/carCrash.png" alt="Crash Background" />
+          <img id="background" *ngIf = "protanomalyOn" src="../../../assets/drivingAssets/protanomaly/carCrash.png" alt="Crash Background" />
+          <img id="background" *ngIf = "protanopiaOn" src="../../../assets/drivingAssets/protanopia/carCrash.png" alt="Crash Background" />
+          <img id="background" *ngIf = "deuteranomalyOn" src="../../../assets/drivingAssets/deuteranomaly/carCrash.png" alt="Crash Background" />
+          <img id="background" *ngIf = "deuteranopiaOn" src="../../../assets/drivingAssets/deuteranopia/carCrash.png" alt="Crash Background" />
+          <img id="background" *ngIf = "tritanomalyOn" src="../../../assets/drivingAssets/tritanomaly/carCrash.png" alt="Crash Background" />
+          <img id="background" *ngIf = "tritanopiaOn" src="../../../assets/drivingAssets/tritanopia/carCrash.png" alt="Crash Background" />
+          
+          <button class = "interactableButton" id = "resetCar" ngbTooltip="You Crashed, Click Here to Reset" (click)="resetCar()">Reset</button>
+        </div>
+
+        
+        <!-- The dropdown "to do" list which displays what tasks the user needs to complete -->
+        <div ngbDropdown class="d-inline-block">
+          <button class = "dropdownButton" id="dropdownForm1" ngbDropdownToggle>How to drive safely</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+            <ul>
+              <li>Click areas to drive towards them</li>
+              <li>Click obstacles (highlighted in red) BEFORE driving towards an area. </li>
+              <li>Obstacles include: </li>
+
+              <ol>
+                <li>traffic lights / pedestrians</li>
+                <li>watching out for other cars</li>
+                <li>indicating when entering / exiting roundabouts</li>
+              </ol>
+
+            </ul>
+          </div>
+        </div>
+
+        <!-- On top of all of this is the office cover: displayed when user leaves the office / has not entered  -->
+        <button *ngIf = "!drivingEntered" id="enterRoomCover" (click)="toggleDriving()">Click Here To Start Driving</button>
+    </div>
+
+
+
+
+
+
+    <!-- Screen2 (the song changer) Modal Content -->
+    <ng-template #musicModal let-modal>
+      
+      <!-- Modal header/title -->
+      <div class="modal-header">
+        <h4 class="modal-title">Time To Change My Music</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal body displays a background image (depending on CBD) and buttons over the top which allow the song to be changed-->
+      <div class="modal-body" id = "songSelect">
+        <img id="songSelectBackground" *ngIf = "normalVisionOn" src="../../../assets/officeAssets/normalVision/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "protanomalyOn" src="../../../assets/officeAssets/protanomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "protanopiaOn" src="../../../assets/officeAssets/protanopia/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "deuteranomalyOn" src="../../../assets/officeAssets/deuteranomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "deuteranopiaOn" src="../../../assets/officeAssets/deuteranopia/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "tritanomalyOn" src="../../../assets/officeAssets/tritanomaly/screen2.png" alt="Music selection" />
+        <img id="songSelectBackground" *ngIf = "tritanopiaOn" src="../../../assets/officeAssets/tritanopia/screen2.png" alt="Music selection" />
+
+        <button class = "interactableButton" id = "enigmaticSong" ngbTooltip="Change the song to something generic" (click)="changeSong('enigmatic')"></button>
+        <button class = "interactableButton" id = "jazzyFrenchSong" ngbTooltip="Change the song to something jazzy" (click)="changeSong('jazzyFrench')"></button>
+        <button class = "interactableButton" id = "happyRockSong" ngbTooltip="Change the song to rock" (click)="changeSong('happyRock')"></button>
+      </div>
+    </ng-template>
+
+
+</body>
