@@ -12,3 +12,11 @@ body{
     align-items:center;
     /* height: 80vh; */
 }
+
+h3{
+    color: dimgray;
+}
+
+p{
+    color: dimgray;
+}

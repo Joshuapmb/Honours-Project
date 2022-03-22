@@ -6,51 +6,97 @@
   <br>
   
   <div class="carouselCont">
-    <ngb-carousel *ngIf="images">
+    <ngb-carousel>
+
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
-          <img [src]="images[0]" alt="Random first slide">
+          <img src="../../../assets/homepageAssets/carouselBG.png" alt="First slide">
         </div>
         <div class="carousel-caption">
           <h3>Welcome to the ATHESA</h3>
           <p>Accessibility Through Empathy Simulation Application</p>
         </div>
       </ng-template>
+
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
-          <img [src]="images[2]" alt="Random third slide">
+          <img src="../../../assets/homepageAssets/carouselBG.png" alt="Second slide">
         </div>
         <div class="carousel-caption">
           <h3>ATHESA's Purpose</h3>
-          <p>Those with disabilities can often be left out and unaccommodated for. ATHESA puts us in
-            their shoes so that we can hopefully better understand their challenges, find solutions for them,
-            and make the world an easier place to live in.
+          <p>People with disabilities can often be unaccommodated for and misunderstood. ATHESA puts us in
+            their shoes so that we can  better understand their experiences and better empathise with them.
           </p>
         </div>
       </ng-template>
+
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
-          <img [src]="images[1]" alt="Random second slide">
+          <img src="../../../assets/homepageAssets/carouselBG.png" alt="Third slide">
         </div>
         <div class="carousel-caption">
           <h3>How to use ATHESA</h3>
-          <p>Use the bar at the top to navigate between different rooms; each room will have items to interact with.
+          <p>Use the bar at the top to navigate between different environments. Each environment will have items to interact with.
             Interact with the items normally, before using the bar at the side to simulate disabilities. Notice the
             difference!
           </p>
         </div>
       </ng-template>
+
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
-          <img [src]="images[2]" alt="Random third slide">
+          <img src="../../../assets/homepageAssets/carouselBG.png" alt="Fourth slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>How to use ATHESA: The Office</h3>
+          <p>
+            Upon entering the office, your work phone will ring. Open the voicemail app and listen to the tasks - these are also listed
+            on the top right. Now complete the tasks in whatever order you like. Once you are finished, go back onto the phone and use the
+            email app to send your answers. Now use the button at the side of the page to simulate various disabilties and try the exercises 
+            again, think about which disabilities affect each exercise.
+          </p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets/homepageAssets/carouselBG.png" alt="Fifth slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>How to use ATHESA: The Living Room</h3>
+          <p>
+            Unlike the office, the living room takes a less structured approach to using ATHESA. There are still many items to 
+            interact with, including a television and stack of magazines which are especially impacted by colour blindness.
+          </p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets/homepageAssets/carouselBG.png" alt="Sixth slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>How to use ATHESA: Driving</h3>
+          <p>
+            This environment takes a gamified approach to understanding the experiences of people with disabilities. Instructions on 
+            how to drive are provided in the top right. Drive around the environment without any simulated disabilities and try not to
+            crash. Once you complete the circuit successfully, try simulate different disabilities and see how they affect your performance.
+          </p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets/homepageAssets/carouselBG.png" alt="Seventh slide">
         </div>
         <div class="carousel-caption">
           <h3>Still Interested?</h3>
-          <p>To find out more about certain disabilities, navigate to the 'Learn More' tab and watch
+          <p>To find out more about the simulated disabilities, navigate to the 'Learn More' tab and watch
             some of the videos.
           </p>
         </div>
       </ng-template>
+
     </ngb-carousel>
   </div>
 
