@@ -172,6 +172,10 @@ export class TheOfficePageComponent implements OnInit {
 
       this.ringtoneSound.pause();
       this.ringtonePlaying = false
+
+      // Stop voicemail when leaving office. Reload it so it starts from beginning when re-entering office
+      this.voicemailSound.pause();
+      this.voicemailSound.load();
     }
     // If you are outside the office this is called as you enter
     // Switches the covers over office/navbar and starts/resumes music

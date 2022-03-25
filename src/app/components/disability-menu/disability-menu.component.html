@@ -1,23 +1,9 @@
-<br>
 
-<!-- Tinnitus menu button -->
-<button type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="collapseExample"> 
-    Toggle Disabilities 
-</button>
+<ngb-accordion #acc="ngbAccordion" >
 
-
-<!-- Dropdown for Tinnitus -->
-<div #collapse="ngbCollapse" [(ngbCollapse)]="isMenuCollapsed">
-    <div class="card">
-        <div class="card-body">
-    
+    <ngb-panel title="Toggle Tinnitus">
+      <ng-template ngbPanelContent>
             <!-- Buttons for Tinnitus -->
-            <h3>Tinnitus</h3>
-            <button type="button" id="test" class="tinnitusButton" (click)="toggleTinnitus('test')">
-                Test
-            </button>
-
-            <br>
             <button type="button" id="tinnitus4KhzTWave" class="tinnitusButton" (click)="toggleTinnitus('4KhzTWave')">
                 4kHz Triangle Wave
             </button>
@@ -66,22 +52,20 @@
             <button type="button" id="tinnitusVioletNoise" class="tinnitusButton" (click)="toggleTinnitus('VioletNoise')">
                 Violet Noise
             </button>
+      </ng-template>
+    </ngb-panel>
 
 
 
 
 
 
-
-
-
-            
+    <ngb-panel title="Colour Blindness">
+        <ng-template ngbPanelContent>
             <!-- Buttons for colour blindness -->
-            <br>
-            <h3>Colour Blindness</h3>
 
             <button type="button" id="CBDnormal" class="ColourBlindnessButton" (click)="toggleColourBlindness('normalVision')">
-                Normal Vision
+                Typical Vision
             </button>
 
             <br>
@@ -113,45 +97,37 @@
             <button type="button" id="CBDtritanopia" class="ColourBlindnessButton" (click)="toggleColourBlindness('tritanopia')">
                 Tritanopia
             </button>
+        </ng-template>
+      </ngb-panel>
+      
 
 
 
 
 
+      <ngb-panel title="Myopia">
+        <ng-template ngbPanelContent>
+           <!-- Buttons for myopia -->
 
+           <button type="button" id="myopiaNormal" class="myopiaButton" (click)="toggleMyopia('normalVision')">
+               Typical Vision
+           </button>
 
+           <br>
+           <button type="button" id="myopiaMild" class="myopiaButton" (click)="toggleMyopia('mild')">
+               Mild
+           </button>
 
+           <br>
+           <button type="button" id="myopiaSignificant" class="myopiaButton" (click)="toggleMyopia('significant')">
+               Significant
+           </button>
 
-            
-            <!-- Buttons for myopia -->
-            <br>
-            <h3>Myopia</h3>
+           <br>
+           <button type="button" id="myopiaSevere" class="myopiaButton" (click)="toggleMyopia('severe')">
+               Severe
+           </button>
+        </ng-template>
+      </ngb-panel>
 
-            <button type="button" id="myopiaNormal" class="myopiaButton" (click)="toggleMyopia('normalVision')">
-                Normal Vision
-            </button>
-
-            <br>
-            <button type="button" id="myopiaMild" class="myopiaButton" (click)="toggleMyopia('mild')">
-                Mild
-            </button>
-
-            <br>
-            <button type="button" id="myopiaSignificant" class="myopiaButton" (click)="toggleMyopia('significant')">
-                Significant
-            </button>
-
-            <br>
-            <button type="button" id="myopiaSevere" class="myopiaButton" (click)="toggleMyopia('severe')">
-                Severe
-            </button>
-
-
-        </div>
-    </div>
-</div>
-
-
-
-<br>
-<br>
+  </ngb-accordion>

@@ -524,6 +524,8 @@ export class TheDrivingPageComponent implements OnInit {
     var trafficLightComponent = document.getElementById("trafficLights")
     if(trafficLightComponent){
       trafficLightComponent.style.outlineColor = "lime"
+      trafficLightComponent.style.outlineStyle = "solid"
+      trafficLightComponent.style.outlineWidth = "5px"
       this.redLight = false;
     }
   }
@@ -534,6 +536,8 @@ export class TheDrivingPageComponent implements OnInit {
     var pedestriansComponent = document.getElementById("pedestrians")
     if(pedestriansComponent){
       pedestriansComponent.style.outlineColor = "lime"
+      pedestriansComponent.style.outlineStyle = "solid"
+      pedestriansComponent.style.outlineWidth = "5px"
       this.canHitPedestrians = false;
     }
   }
@@ -544,6 +548,8 @@ export class TheDrivingPageComponent implements OnInit {
     var whiteCarComponent = document.getElementById("whiteCar")
     if(whiteCarComponent){
       whiteCarComponent.style.outlineColor = "lime"
+      whiteCarComponent.style.outlineStyle = "solid"
+      whiteCarComponent.style.outlineWidth = "5px"
       this.canHitWhiteCar = false;
     }
   }
@@ -554,6 +560,8 @@ export class TheDrivingPageComponent implements OnInit {
     var indicatorComponent = document.getElementById("indicator")
     if(indicatorComponent){
       indicatorComponent.style.outlineColor = "lime"
+      indicatorComponent.style.outlineStyle = "solid"
+      indicatorComponent.style.outlineWidth = "5px"
       this.needsToIndicate = false;
      this.indicatorSound.play();
     }

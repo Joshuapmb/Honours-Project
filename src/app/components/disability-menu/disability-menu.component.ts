@@ -16,9 +16,6 @@ export class DisabilityMenuComponent implements OnInit {
     this.audio.loop = true;
   }
 
-  
-  public isMenuCollapsed = true;
-
   audio = new Audio();
   activeTinnitusButton : any;
   arrayOfTinnitusButtons : any;
