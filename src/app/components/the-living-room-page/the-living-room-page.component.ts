@@ -133,6 +133,7 @@ export class TheLivingRoomPageComponent implements OnInit {
      this.officeEntered = false
      this.officeBackgroundMusic.pause();
      this.musicPlaying = false;
+     this.catPurring.pause();
    }
    // If you are outside the office this is called as you enter
    // Switches the covers over office/navbar and starts/resumes music
