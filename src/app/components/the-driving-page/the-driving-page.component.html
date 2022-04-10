@@ -192,7 +192,7 @@
         </div>
 
         
-        <!-- The dropdown "to do" list which displays what tasks the user needs to complete -->
+        <!-- The dropdown instructions list which displays how to drive safely -->
         <div ngbDropdown class="d-inline-block">
           <button class = "dropdownButton" id="dropdownForm1" ngbDropdownToggle>How to drive safely</button>
           <div ngbDropdownMenu aria-labelledby="dropdownForm1">
@@ -211,7 +211,7 @@
           </div>
         </div>
 
-        <!-- On top of all of this is the office cover: displayed when user leaves the office / has not entered  -->
+        <!-- On top of all of this is the driving cover: displayed when user leaves the driving environment / has not entered  -->
         <button *ngIf = "!drivingEntered" id="enterRoomCover" (click)="toggleDriving()">Click Here To Start Driving</button>
     </div>
 
