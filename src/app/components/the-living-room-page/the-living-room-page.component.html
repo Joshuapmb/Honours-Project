@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <app-navbar></app-navbar>
 
-<!-- Navbar cover: displayed when user enters the office -->
+<!-- Navbar cover: displayed when user enters the living room -->
 <button *ngIf = "officeEntered" id="navbarCover" (click)="toggleOffice()">Click Here To Leave The Living Room</button>
 
 
@@ -9,10 +9,10 @@
 
   <br>  
 
-    <!-- The whole office section: this contains interactable objects and the background -->
+    <!-- The whole living room section: this contains interactable objects and the background -->
     <div id="livingRoomSetup">
 
-        <!-- This is the background of the office, the specific image is displayed based on which colour blind option is active -->
+        <!-- This is the background of the living room, the specific image is displayed based on which colour blind option is active -->
         <img id="background" *ngIf = "normalVisionOn" src="../../../assets/livingRoomAssets/normalVision/livingRoomBackground.png" alt="Living Room Background" />
         <img id="background" *ngIf = "protanomalyOn" src="../../../assets/livingRoomAssets/protanomaly/livingRoomBackground.png" alt="Living Room Background" />
         <img id="background" *ngIf = "protanopiaOn" src="../../../assets/livingRoomAssets/protanopia/livingRoomBackground.png" alt="Living Room Background" />
@@ -83,7 +83,7 @@
           </div>
         </div>
 
-        <!-- On top of all of this is the office cover: displayed when user leaves the office / has not entered  -->
+        <!-- On top of all of this is the living room cover: displayed when user leaves the living room / has not entered  -->
         <button *ngIf = "!officeEntered" id="enterRoomCover" (click)="toggleOffice()">Click Here To Enter The Living Room</button>
     </div>
 

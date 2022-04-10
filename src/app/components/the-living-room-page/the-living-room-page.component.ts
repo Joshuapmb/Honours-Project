@@ -20,29 +20,29 @@ export class TheLivingRoomPageComponent implements OnInit {
    // Book carousel - do not show bars at bottom
    config.showNavigationIndicators = false;
 
-   // Subscribe the office to activeCBD service. When the user clicks one of the CBDs in the disability menu, this subscriber will know
+   // Subscribe the living room to activeCBD service. When the user clicks one of the CBDs in the disability menu, this subscriber will know
    this.cbdSelectionSubscription = this.activeCBDService.getActiveCBD().subscribe(()=>{
      this.setCBDImages();
    })
 
-    // Subscribe the office to activeMyopiaService. When the user clicks one of the myopia in the disability menu, this subscriber will know
+    // Subscribe the living room to activeMyopiaService. When the user clicks one of the myopia in the disability menu, this subscriber will know
     this.myopiaSelectionSubscription = this.activeMyopiaService.getActiveMyopia().subscribe(()=>{
     this.setMyopiaVariables();
     })
 
   }
 
- // Create an audio object for office background music
+ // Create an audio object for living room background music
  officeBackgroundMusic = new Audio(); 
 
  // Create an audio object for stroking the cat
  catPurring = new Audio();
 
- // Determines whether music is playing or not. Initially false, turns true when office is entered, turns false when office is left
- // Can be toggled true/false when the speakers are toggled within the office
+ // Determines whether music is playing or not. Initially false, turns true when living room is entered, turns false when living room is left
+ // Can be toggled true/false when the speakers are toggled within the living room
  musicPlaying = false;
 
- // Determines whtehr the office has been entered and which covers to display
+ // Determines whtehr the living room has been entered and which covers to display
  officeEntered = false;
 
 
@@ -68,7 +68,7 @@ export class TheLivingRoomPageComponent implements OnInit {
  }
 
 
- // Open modals when clicking on different items in the office
+ // Open modals when clicking on different items in the living room
  openBackDropCustomClass(content: any) {
    this.modalService.open(content);
  }
@@ -125,18 +125,18 @@ export class TheLivingRoomPageComponent implements OnInit {
 
 
 
- // Called when you enter and leave the office via the buttons
+ // Called when you enter and leave the living room via the buttons
  toggleOffice() {
-   // If you have been in the office, this is called as you leave
-   // Switches the covers over office/navbar and pauses music/ringtone
+   // If you have been in the living room, this is called as you leave
+   // Switches the covers over living room/navbar and pauses music/ringtone
    if(this.officeEntered){
      this.officeEntered = false
      this.officeBackgroundMusic.pause();
      this.musicPlaying = false;
      this.catPurring.pause();
    }
-   // If you are outside the office this is called as you enter
-   // Switches the covers over office/navbar and starts/resumes music
+   // If you are outside the living room this is called as you enter
+   // Switches the covers over living room/navbar and starts/resumes music
    else if(!this.officeEntered){
      this.officeEntered = true
    }
